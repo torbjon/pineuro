@@ -138,6 +138,8 @@
 					searchTerms: options.searchTerm,
 					wskey: api_key,
 					qf: "TYPE:IMAGE",
+					qf: "NOT RIGHTS:http://www.europeana.eu/rights/rr-p/",
+					qf: "NOT RIGHTS:http://www.europeana.eu/rights/rr-3/",
 					startPage: options.page
 				}, function(data){
 					totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
@@ -148,7 +150,7 @@
 							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
 								//if(this.width == 200){
-									$("#tiles").append("<li width='"+this.width+"' height='"+this.height+"'><a class='imagepopup' href='#popup'><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
+									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 									if(handler) handler.wookmarkClear();
 									handler = $('#tiles li');
 									handler.wookmark(options);
