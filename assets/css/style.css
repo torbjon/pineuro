@@ -63,8 +63,8 @@ header h1 {
 
 /** Grid items */
 #tiles li {
-  width: 200px;
-  background-color: #ffffff;
+  width: 196px;
+  background-color: #fff;
   border: 1px solid #dedede;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -72,6 +72,7 @@ header h1 {
   display: none; /** Hide items initially to avoid a flicker effect **/
   cursor: pointer;
   padding: 4px;
+  margin: 4px;
 }
 
 #tiles li img { display: block; }

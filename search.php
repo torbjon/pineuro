@@ -112,9 +112,9 @@
 		// Prepare layout options.
 		var options = {
 			autoResize: true, // This will auto-update the layout when the browser window is resized.
-			container: $('#main'), // Optional, used for some extra CSS styling
-			offset: 10, //, // Optional, the distance between grid items
-			itemWidth: 200 // Optional, the width of a grid item
+			container: $('#main'),  // Optional, used for some extra CSS styling
+			offset: 4 //, // Optional, the distance between grid items
+			// itemWidth: 200 // Optional, the width of a grid item
 		};
 
 		var totalpages = 0,
@@ -163,18 +163,18 @@
 					$.each(data.items, function(i){
 						$.getJSON(data.items[i].link+"&callback=?", function(item){
 							newimg = new Image()
-							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
+							newimg.src = "http://social.apps.lv/image.php?w=196&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
 								//if(this.width == 200){
 									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-originaluri='"+item['europeana:uri']+"' data-provider='"+item['europeana:provider']+"' data-country='"+item['europeana:country']+"' data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 									if(handler) handler.wookmarkClear();
 									handler = $('#tiles li');
 									handler.wookmark({
-			autoResize: true, // This will auto-update the layout when the browser window is resized.
-			container: $('#main'), // Optional, used for some extra CSS styling
-			offset: 4 // Optional, the distance between grid items
-			//itemWidth: 210 // Optional, the width of a grid item
-		});
+										autoResize: true, // This will auto-update the layout when the browser window is resized.
+										container: $('#main'), // Optional, used for some extra CSS styling
+										offset: 4 // Optional, the distance between grid items
+										//itemWidth: 210 // Optional, the width of a grid item
+									});
 								//}
 							}
 						})
@@ -213,9 +213,9 @@
 					$("#popup_img_title").html("")
 				}
 				$(".imagepopup").fancybox({
-					'width': 800,
-					'height': 500,
-					'padding': 0,
+					'width'					: 800,
+					'height'				: 500,
+					'padding'				: 0,
 					'centerOnScroll': true,
 					'transitionIn'	: 'elastic',
 					'transitionOut'	: 'elastic',
@@ -237,9 +237,9 @@
 			if(closeToBottom) {
 				// Get the first then items from the grid, clone them, and add them to the bottom of the grid.
 				load_images({
-			searchTerm: searchTerm,
-			page: current_page
-		})
+					searchTerm: searchTerm,
+					page: current_page
+				})
 
 				// Clear our previous layout handler.
 				if(handler) handler.wookmarkClear();
