@@ -24,8 +24,57 @@
 		<ul id="tiles"></ul>
 	</div>
 
-	<div id="popup">
+	<style>
+		#popup {
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			width: 800px;
+			height: 500px;
+			background-color: #333;
+			z-index: 1000;
+			border: 2px solid #000;
+		}
+		#popup_img {
+			float: left;
+			margin: 15px;
+			width: 500px;
+			height: 470px;
+			background: #333 url("http://social.apps.lv/image.php?w=500&h=470&zc=3&src=http%3A%2F%2Fzudusilatvija.lv%2Fstatic%2Ffiles%2F11%2F02%2F09%2FSaldus-Gimnazija_1_png_600x375_watermark-zl_watermark-r20xb20_q85.jpg") no-repeat center center;
+		}
+		#popup_side {
+			float: left;
+			margin: 15px auto;
+			width: 255px;
+			height: 470px;
+			background-color: red;
+		}
+		#popup_background {
+			position: relative;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color:rgba(0,0,0,0.8);
+			z-index: 5;
+		}
+		#popup_inner {
+			height: 490px;
+			border-top: 5px solid #ccc;
+			border-bottom: 5px solid #ccc;
 
+		}
+	</style>
+	<div id="popup_background"></div>
+	<div id="popup">
+		<div id="popup_inner">
+			<div id="popup_img">
+
+			</div>
+			<div id="popup_side">
+
+			</div>
+		</div>
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -104,20 +153,6 @@
 					page: current_page
 				})
 			}
-			/*
-			load_images({
-				searchTerm: searchTerm,
-				page: current_page
-			})
-			load_images({
-				searchTerm: searchTerm,
-				page: current_page
-			})
-			load_images({
-				searchTerm: searchTerm,
-				page: current_page
-			})
-			*/
 			$("#tiles").on("click", "img", function(){
 				alert($(this).data("url"))
 			})
