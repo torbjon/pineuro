@@ -38,13 +38,13 @@
 				var pages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
 				$.each(data.items, function(i){
 					$.getJSON(data.items[i].link+"&callback=?", function(item){
-						newimg = new Image("http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object']))
-						if(newimg.width == 0){
+						newimg = new Image()
+						newimg.src = "http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])
+						newimg.onload = function(){
 							$(".content").append("<img src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' />")
 						}
 					})
 				})
-				/*
 				while(pages){
 					imgnr++
 					if(imgnr === stopat){
@@ -59,16 +59,17 @@
 					}, function(otherpage){
 						$.each(otherpage.items, function(i){
 							$.getJSON(otherpage.items[i].link+"&callback=?", function(item){
-								newimg = new Image("http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object']))
-								if(newimg.width == 0){
-									$(".content").append("<img id='img_"+imgnr+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' />")
+								newimg = new Image()
+								newimg.src = "http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])
+								newimg.onload = function(){
+									$(".content").append("<img src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' />")
 								}
 							})
 						})
 					})
 					pages--
 				}
-				*/
+
 			}
 		)
 		console.log(errors)
