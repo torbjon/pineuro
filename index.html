@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>Europin</title>
+	<title>europ.in</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<link rel="stylesheet" href="assets/css/reset.css">
@@ -13,80 +13,111 @@
 
 <body>
 
-	<div>
-		<input type="text" id="q"> <input type="button" value="search" id="s">
+	<div id="header">
+		<form id="f">
+			<input type="text" id="q" />
+			<button id="s">Search</button>
+		</form>
 	</div>
 
 	<div id="main">
-		<ul id="tiles">
-
-		</ul>
+		<ul id="tiles"></ul>
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="assets/js/wookmark.js"></script>
-  <script>
-
-	var totalpages = 0,
-		api_key = "HTMQFSCKKB",
-		current_page = 1,
-		searchTerm = "Saldus";
-	$("#s").on("click", function(){
-		if($("#q").val() != ""){
-			$("#tiles").html("")
-			searchTerm = $("#q").val()
-			load_images({
-				searchTerm: searchTerm,
-				page: current_page
-			})
-			load_images({
-				searchTerm: searchTerm,
-				page: current_page
-			})
-			load_images({
-				searchTerm: searchTerm,
-				page: current_page
-			})
-		}
-	})
-	function load_images(options){
-		$.getJSON("http://api.europeana.eu/api/opensearch.json?callback=?", {
-				searchTerms: options.searchTerm,
-				wskey: api_key,
-				qf: "TYPE:IMAGE",
-				startPage: options.page
-			}, function(data){
-				totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
-				$.each(data.items, function(i){
-					$.getJSON(data.items[i].link+"&callback=?", function(item){
-						newimg = new Image()
-						newimg.src = "http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])
-						newimg.onload = function(){
-							$("#tiles").append("<li><img src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></li>")
-							if(handler) handler.wookmarkClear();
-							handler = $('#tiles li');
-							handler.wookmark(options);
-						}
-					})
+	<script>
+		var totalpages = 0,
+			api_key = "HTMQFSCKKB",
+			current_page = 1,
+			searchTerm = "Saldus";
+		$("#f").submit(function(){
+			if($("#q").val() != ""){
+				document.location.hash = "!/search/"+encodeURIComponent($("#q").val())
+			}
+			return false
+		})
+		$("#s").on("click", function(){
+			if($("#q").val() != ""){
+				document.location.hash = "!/search/"+encodeURIComponent($("#q").val())
+				$("#main").css({height: 0})
+				current_page = 1
+				$("#tiles").html("")
+				searchTerm = $("#q").val()
+				load_images({
+					searchTerm: searchTerm,
+					page: current_page
+				})
+				load_images({
+					searchTerm: searchTerm,
+					page: current_page
+				})
+				load_images({
+					searchTerm: searchTerm,
+					page: current_page
 				})
 			}
-		)
-		current_page++
-	}
-	$(function(){
-		load_images({
-			searchTerm: searchTerm,
-			page: current_page
 		})
-		load_images({
-			searchTerm: searchTerm,
-			page: current_page
+
+		function load_images(options){
+			$.getJSON("http://api.europeana.eu/api/opensearch.json?callback=?", {
+					searchTerms: options.searchTerm,
+					wskey: api_key,
+					qf: "TYPE:IMAGE",
+					startPage: options.page
+				}, function(data){
+					totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
+					$.each(data.items, function(i){
+						$.getJSON(data.items[i].link+"&callback=?", function(item){
+							newimg = new Image()
+							newimg.src = "http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])
+							newimg.onload = function(){
+								$("#tiles").append("<li><img data-url='"+item['europeana:uri']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></li>")
+								if(handler) handler.wookmarkClear();
+								handler = $('#tiles li');
+								handler.wookmark(options);
+							}
+						})
+					})
+				}
+			)
+			current_page++
+		}
+		$(function(){
+			searchTerm = decodeURIComponent(document.location.hash.replace("#!/search/",""))
+			if(searchTerm != ""){
+				$("#q").val(searchTerm)
+				load_images({
+					searchTerm: searchTerm,
+					page: current_page
+				})
+				load_images({
+					searchTerm: searchTerm,
+					page: current_page
+				})
+				load_images({
+					searchTerm: searchTerm,
+					page: current_page
+				})
+			}
+			/*
+			load_images({
+				searchTerm: searchTerm,
+				page: current_page
+			})
+			load_images({
+				searchTerm: searchTerm,
+				page: current_page
+			})
+			load_images({
+				searchTerm: searchTerm,
+				page: current_page
+			})
+			*/
+			$("#tiles").on("click", "img", function(){
+				alert($(this).data("url"))
+			})
 		})
-		load_images({
-			searchTerm: searchTerm,
-			page: current_page
-		})
-	})
 	</script>
 
 	<!-- Once the page is loaded, initalize the plug-in. -->
@@ -113,7 +144,6 @@
 			searchTerm: searchTerm,
 			page: current_page
 		})
-			console.log(current_page)
 
 				// Clear our previous layout handler.
 				if(handler) handler.wookmarkClear();
