@@ -1,6 +1,5 @@
 /** General page styling **/
 html { background: url(/assets/images/bg.gif); }
-#main { padding: 30px 0 30px 0; }
 
 header h1 {
   text-align: center;
@@ -29,6 +28,7 @@ header h1 {
 
 /** Rezult page */
 #header {
+  top: 0;
   height: 40px;
   background-color: #3d261a;
   position: fixed;
@@ -42,15 +42,23 @@ header h1 {
 }
 #header .logo { margin: 5px 0 0 10px; }
 #header form.search { display: inline; margin-left: 20px; }
-#header form.search { border: 1px solid red; }
-/*#header form.search inpu {  }*/
+#header form.search { display: inline; position: absolute; margin-top: 3px; }
+#header form.search .search_bar { 
+  border: 1px solid #2b1003; padding: 4px; margin-top: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#header form.search .btn { height: 23px; margin-top: -3px; line-height: 11px; }
+#header #count { float: right; margin: 8px 10px 0 0; color: #fff; font-size: 20px; }
 
 
 /** Grid container */
+#main { padding: 30px 0 30px 0; margin-top: 22px; position: relative; }
 #tiles { 
   list-style-type: none;
   margin: 0;
-  /*position: relative; /** Needed to ensure items are laid out relative to this container **/
+  position: relative; /** Needed to ensure items are laid out relative to this container */
 }
 
 /** Grid items */
