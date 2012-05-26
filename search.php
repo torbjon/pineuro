@@ -31,14 +31,14 @@
 			height: 500px;
 			background-color: #333;
 			z-index: 1000;
-			border: 2px solid #000;
+			/*border: 2px solid #000;*/
 		}
 		#popup_img {
 			float: left;
 			margin: 15px;
 			width: 500px;
 			height: 470px;
-			background: #dedede no-repeat center center;
+			background: #333 no-repeat center center;
 		}
 		#popup_side {
 			float: left;
@@ -47,12 +47,18 @@
 			width: 225px;
 			height: 440px;
 			background-color: #efefef;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border-radius: 2px;
 		}
 		#popup_img_title {
 			background-color: rgba(0,0,0,0.7);
-			font: 14px Arial;
+			font-size: 14px;
 			color: #fff;
 			padding: 10px 7px;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border-radius: 2px;
 		}
 		#popup_side ul {
 			list-style-type: none;
@@ -84,7 +90,10 @@
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script type="text/javascript" src="/assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script src="/assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script src="/assets/fancybox/jquery.easing-1.3.pack.js"></script>
+	<script src="/assets/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script src=""></script>
 	<script src="/assets/js/wookmark.js"></script>
 	<script src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
 	<script>
@@ -107,7 +116,6 @@
 			offset: 10, //, // Optional, the distance between grid items
 			itemWidth: 200 // Optional, the width of a grid item
 		};
-
 
 		var totalpages = 0,
 			api_key = "HTMQFSCKKB",
@@ -195,7 +203,7 @@
 				})
 			}
 			$("#tiles").on("click", ".imagepopup", function(){
-				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=dedede&w=470&h=470&zc=2&src='+$(this).children("img").data("imgsrc")+')')
+				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=333&w=470&h=470&zc=2&src='+$(this).children("img").data("imgsrc")+')')
 				if($(this).children("img").data("title") != undefined){
 					$("#popup_img_title").html($(this).children("img").data("title"))
 					$("#datacountry").html($(this).children("img").data("country"))
@@ -207,7 +215,12 @@
 				$(".imagepopup").fancybox({
 					'width': 800,
 					'height': 500,
-					'padding': 0
+					'padding': 0,
+					'centerOnScroll': true,
+					'transitionIn'	: 'elastic',
+					'transitionOut'	: 'elastic',
+					'easingIn'      : 'easeOutBack',
+					'easingOut'     : 'easeInBack'
 				})
 				return false
 			})
