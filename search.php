@@ -82,7 +82,7 @@
 		#popup_side li {
 			padding-left: 5px;
 		}
-		.fancybox-bg { display:none; }
+		.fancybox-bg { display: none; }
 	</style>
 	<div style="display:none;">
 		<div id="popup">
@@ -122,12 +122,12 @@
 		})(window);
 	
 		// Prepare layout options.
-		var options = {
-			autoResize: true, // This will auto-update the layout when the browser window is resized.
-			container: $('#main'),  // Optional, used for some extra CSS styling
-			offset: 4 //, // Optional, the distance between grid items
-			// itemWidth: 200 // Optional, the width of a grid item
-		};
+		// var options = {
+		// 	autoResize: true, // This will auto-update the layout when the browser window is resized.
+		// 	container: $('#main'),  // Optional, used for some extra CSS styling
+		// 	offset: 4 //, // Optional, the distance between grid items
+		// 	// itemWidth: 200 // Optional, the width of a grid item
+		// };
 
 		var totalpages = 0,
 			api_key = "HTMQFSCKKB",
@@ -162,6 +162,14 @@
 			}
 		})
 		*/
+		function wookmarking(){
+			$('#tiles li').wookmark({
+				autoResize: true, // This will auto-update the layout when the browser window is resized.
+				container: $('#main'), // Optional, used for some extra CSS styling
+				offset: 4 // Optional, the distance between grid items
+				//itemWidth: 210 // Optional, the width of a grid item
+			});
+		}
 
 		function load_images(options){
 			$.getJSON("http://api.europeana.eu/api/opensearch.json?callback=?", {
@@ -180,13 +188,7 @@
 								//if(this.width == 200){
 									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-originaluri='"+item['europeana:uri']+"' data-provider='"+item['europeana:provider']+"' data-country='"+item['europeana:country']+"' data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 									if(handler) handler.wookmarkClear();
-									handler = $('#tiles li');
-									handler.wookmark({
-										autoResize: true, // This will auto-update the layout when the browser window is resized.
-										container: $('#main'), // Optional, used for some extra CSS styling
-										offset: 4 // Optional, the distance between grid items
-										//itemWidth: 210 // Optional, the width of a grid item
-									});
+									wookmarking();
 								//}
 							}
 						})
@@ -214,6 +216,7 @@
 					page: current_page
 				})
 			}
+
 			$("#tiles").on("click", ".imagepopup", function(){
 				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=333&w=470&h=470&zc=2&src='+$(this).children("img").data("imgsrc")+')')
 				if($(this).children("img").data("title") != undefined){
@@ -232,10 +235,7 @@
 					'transitionIn'	: 'elastic',
 					'transitionOut'	: 'elastic',
 					'easingIn'      : 'easeOutBack',
-					'easingOut'     : 'easeInBack',
-					'overlayOpacity': 0.9
-					// 'cyclic'				: true,
-					// 'opacity': true
+					'easingOut'     : 'easeInBack'
 				})
 				return false
 			})
@@ -260,8 +260,7 @@
 				if(handler) handler.wookmarkClear();
 
 				// Create a new layout handler.
-				handler = $('#tiles li');
-				handler.wookmark(options);
+				wookmarking();
 			}
 		};
 
@@ -270,8 +269,7 @@
 			$(document).bind('scroll', onScroll);
 
 			// Call the layout function.
-			handler = $('#tiles li');
-			handler.wookmark(options);
+			wookmarking();
 		});
 	</script>
 
