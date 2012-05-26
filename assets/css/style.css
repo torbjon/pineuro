@@ -27,7 +27,6 @@ header h1 {
 .start .about { margin-top: 60px; display: none; }
 .start .about a { color: #777; }
 
-
 /** Rezult page */
 #header {
   height: 40px;
@@ -41,17 +40,16 @@ header h1 {
   -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
-
 #header .logo { margin: 5px 0 0 10px; }
 #header form.search { display: inline; margin-left: 20px; }
 /*#header form.search inpu {  }*/
 
 
 /** Grid container */
-#tiles {
+#tiles { 
   list-style-type: none;
-  /*position: relative; /** Needed to ensure items are laid out relative to this container **/*/
   margin: 0;
+  /*position: relative; /** Needed to ensure items are laid out relative to this container **/
 }
 
 /** Grid items */
