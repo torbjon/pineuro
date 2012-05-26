@@ -24,6 +24,10 @@
 		<ul id="tiles"></ul>
 	</div>
 
+	<div id="popup">
+
+	</div>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="assets/js/wookmark.js"></script>
 	<script>
@@ -70,7 +74,7 @@
 					$.each(data.items, function(i){
 						$.getJSON(data.items[i].link+"&callback=?", function(item){
 							newimg = new Image()
-							newimg.src = "http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])
+							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
 								$("#tiles").append("<li><img data-url='"+item['europeana:uri']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></li>")
 								if(handler) handler.wookmarkClear();
