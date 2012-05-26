@@ -141,7 +141,7 @@
 							newimg = new Image()
 							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
-								$("#tiles").append("<li><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></li>")
+								$("#tiles").append("<li><a class='imagepopup' href='#popup'><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 								if(handler) handler.wookmarkClear();
 								handler = $('#tiles li');
 								handler.wookmark(options);
@@ -175,7 +175,7 @@
 				$("#popup_img").css("background-image", 'url("http://social.apps.lv/image.php?cc=dedede&w=470&h=470&zc=2&src="'+$(this).data("imgsrc")+')')
 				$("#popup_img_title").html($(this).data("title"))
 				console.log($("#popup"))
-				$("#popup").fancybox({
+				$(".imagepopup").fancybox({
 					'width': 800,
 					'height': 500
 				})
