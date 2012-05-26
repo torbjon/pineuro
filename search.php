@@ -15,9 +15,10 @@
 
 	<div id="header">
 		<form id="f" action="/search">
-			<input type="text" id="q" value="<?php echo isset($_GET['q'])?$_GET['q']:""; ?>" />
+			<input type="text" id="q" name="q" value="<?php echo isset($_GET['q'])?$_GET['q']:""; ?>" />
 			<button id="s">Search</button>
 		</form>
+		<div id="count"></div>
 	</div>
 
 	<div id="main">
@@ -25,6 +26,11 @@
 	</div>
 
 	<style>
+		#count {
+			color: #fff;
+			font-size: 20px;
+			margin: 0;
+		}
 		#popup {
 			display: none;
 			position: absolute;
@@ -138,6 +144,7 @@
 					startPage: options.page
 				}, function(data){
 					totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
+					$("#count").html(totalpages)
 					$.each(data.items, function(i){
 						$.getJSON(data.items[i].link+"&callback=?", function(item){
 							newimg = new Image()
