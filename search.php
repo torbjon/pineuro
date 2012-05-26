@@ -134,6 +134,7 @@
 						$.getJSON(data.items[i].link+"&callback=?", function(item){
 							newimg = new Image()
 							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
+							console.log(newimg.width())
 							newimg.onload = function(){
 								$("#tiles").append("<li><a class='imagepopup' href='#popup'><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 								if(handler) handler.wookmarkClear();
@@ -165,14 +166,15 @@
 					page: current_page
 				})
 			}
-			$("#tiles").on("click", "img", function(){
-				$("#popup_img").css("background-image", 'url("http://social.apps.lv/image.php?cc=dedede&w=470&h=470&zc=2&src="'+$(this).data("imgsrc")+')')
-				$("#popup_img_title").html($(this).data("title"))
-				console.log($("#popup"))
+			$("#tiles").on("click", ".imagepopup", function(){
+				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=dedede&w=470&h=470&zc=2&src='+$(this).children("img").data("imgsrc")+')')
+				$("#popup_img_title").html($(this).children("img").data("title"))
 				$(".imagepopup").fancybox({
 					'width': 800,
-					'height': 500
+					'height': 500,
+					'padding': 0
 				})
+				return false
 			})
 		})
 	</script>
