@@ -144,7 +144,7 @@
 					startPage: options.page
 				}, function(data){
 					totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
-					$("#count").html(totalpages)
+					$("#count").html(data.totalResults)
 					$.each(data.items, function(i){
 						$.getJSON(data.items[i].link+"&callback=?", function(item){
 							newimg = new Image()
