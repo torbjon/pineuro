@@ -35,7 +35,6 @@
 			margin: 0;
 		}
 		#popup {
-			position: relative;
 			width: 800px;
 			height: 500px;
 			background-color: #333;
