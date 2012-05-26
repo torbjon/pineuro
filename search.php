@@ -135,7 +135,7 @@
 		var wookoptions = {
 			autoResize: true, // This will auto-update the layout when the browser window is resized.
 			container: $('#main'), // Optional, used for some extra CSS styling
-			offset: 20, // Optional, the distance between grid items
+			offset: 2, // Optional, the distance between grid items
 			itemWidth: 180 // Optional, the width of a grid item
 		};
 
