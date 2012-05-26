@@ -14,7 +14,7 @@
 <body>
 
 	<div id="header">
-		<a href="/"><img src="/assets/images/logo_small.png" height="30" alt=""></a>
+		<a href="/"><img src="/assets/images/logo_small.png" height="30" height="118" alt="" class="logo"></a>
 		<form id="f" action="/search" class="search">
 			<input type="text" id="q" name="q" value="<?php echo isset($_GET['q'])?$_GET['q']:""; ?>" />
 			<button id="s">Search</button>

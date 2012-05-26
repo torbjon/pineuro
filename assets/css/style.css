@@ -42,6 +42,7 @@ header h1 {
 }
 #header .logo { margin: 5px 0 0 10px; }
 #header form.search { display: inline; margin-left: 20px; }
+#header form.search { border: 1px solid red; }
 /*#header form.search inpu {  }*/
 
 
