@@ -22,13 +22,11 @@
 		</form>
 		<div id="count"></div>
 	</div>
-	
-	<div>
-		<div id="main" class="clearfix">
-			<ul id="tiles"></ul>
-		</div>
+		
+	<div id="main">
+		<ul id="tiles"></ul>
 	</div>
-
+	
 	<style>
 		#popup {
 			width: 800px;
