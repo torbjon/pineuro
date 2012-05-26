@@ -179,7 +179,8 @@
 				})
 				$(".imagepopup").fancybox({
 					'width': 800,
-					'height': 500
+					'height': 500,
+					'padding': 0
 				})
 			})
 		})
