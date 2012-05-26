@@ -14,7 +14,7 @@
 <body>
 
 	<div>
-		<input type="text"> <input type="button" value="search">
+		<input type="text" id="q"> <input type="button" value="search" id="s">
 	</div>
 
 	<div id="main">
@@ -26,11 +26,29 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="assets/js/wookmark.js"></script>
   <script>
+
 	var totalpages = 0,
 		api_key = "HTMQFSCKKB",
 		current_page = 1,
 		searchTerm = "Saldus";
-
+	$("#s").on("click", function(){
+		if($("#q").val() != ""){
+			$("#tiles").html("")
+			searchTerm = $("#q").val()
+			load_images({
+				searchTerm: searchTerm,
+				page: current_page
+			})
+			load_images({
+				searchTerm: searchTerm,
+				page: current_page
+			})
+			load_images({
+				searchTerm: searchTerm,
+				page: current_page
+			})
+		}
+	})
 	function load_images(options){
 		$.getJSON("http://api.europeana.eu/api/opensearch.json?callback=?", {
 				searchTerms: options.searchTerm,
