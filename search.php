@@ -73,9 +73,11 @@
 				<div id="popup_side">
 					<ul>
 						<lh>Country:</lh>
-						<li>Latvia</li>
+						<li id="datacountry"></li>
 						<lh>Provider:</lh>
-						<li>Latvijas nacionālā bibliotēka</li>
+						<li id="dataprovider"></li>
+						<lh>Europeana URI:</lh>
+						<li id="dataoriginaluri"></li>
 					</ul>
 				</div>
 		</div>
@@ -156,7 +158,7 @@
 							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
 								//if(this.width == 200){
-									$("#tiles").append("<li width='"+this.width+"' height='"+this.height+"'><a class='imagepopup' href='#popup'><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
+									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-originaluri='"+item['europeana:uri']+"' data-provider='"+item['europeana:provider']+"' data-country='"+item['europeana:country']+"' data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 									if(handler) handler.wookmarkClear();
 									handler = $('#tiles li');
 									handler.wookmark({
@@ -196,6 +198,9 @@
 				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=dedede&w=470&h=470&zc=2&src='+$(this).children("img").data("imgsrc")+')')
 				if($(this).children("img").data("title") != undefined){
 					$("#popup_img_title").html($(this).children("img").data("title"))
+					$("#datacountry").html($(this).children("img").data("country"))
+					$("#dataprovider").html($(this).children("img").data("provider"))
+					$("#dataoriginaluri").html($(this).children("img").data("originaluri"))
 				} else {
 					$("#popup_img_title").html("")
 				}
