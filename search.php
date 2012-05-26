@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="/assets/fancybox/jquery.fancybox-1.3.4.css" />
 </head>
 <body>
-	
+
 	<div id="header">
 		<a href="/"><img src="/assets/images/logo_small.png" height="30" width="118" alt="" class="logo"></a>
 		<form id="f" action="/search" class="search">
@@ -21,10 +21,10 @@
 		<div id="count"></div>
 	</div>
 		
-	<div id="main" class="cleaerfix">
+	<div id="main" class="clearfix">
 		<ul id="tiles"></ul>
 	</div>
-	
+
 	<style>
 		#popup {
 			width: 800px;
@@ -84,6 +84,20 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript" src="/assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 	<script src="/assets/js/wookmark.js"></script>
+	<script defer src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+	<script>
+		(function(window,undefined){
+			var History = window.History,
+				$ = window.jQuery,
+				document = window.document;
+			if ( !History.enabled ) {
+				return false;
+			}
+			$(function(){
+
+			})
+		})(window);
+	</script>
 	<script>
 		var totalpages = 0,
 			api_key = "HTMQFSCKKB",
@@ -133,12 +147,12 @@
 							newimg = new Image()
 							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
-								if(this.width == 200){
-									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
+								//if(this.width == 200){
+									$("#tiles").append("<li width='"+this.width+"' height='"+this.height+"'><a class='imagepopup' href='#popup'><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 									if(handler) handler.wookmarkClear();
 									handler = $('#tiles li');
 									handler.wookmark(options);
-								}
+								//}
 							}
 						})
 					})
@@ -190,8 +204,8 @@
 		var options = {
 			autoResize: true, // This will auto-update the layout when the browser window is resized.
 			container: $('#main'), // Optional, used for some extra CSS styling
-			offset: 4, // Optional, the distance between grid items
-			itemWidth: 210 // Optional, the width of a grid item
+			offset: 4//, // Optional, the distance between grid items
+			//itemWidth: 210 // Optional, the width of a grid item
 		};
 
 		/**
