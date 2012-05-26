@@ -3,37 +3,31 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
 	<title>europ.in</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<meta charset="utf-8" />
-
 	<link rel="stylesheet" href="/assets/css/reset.css" />
 	<link rel="stylesheet" href="/assets/css/style.css" />
+	<link rel="stylesheet" href="/assets/css/bootstrap.css" />
 	<link rel="stylesheet" href="/assets/fancybox/jquery.fancybox-1.3.4.css" />
 </head>
-
 <body>
-
+	
 	<div id="header">
-		<a href="/"><img src="/assets/images/logo_small.png" height="30" height="118" alt="" class="logo"></a>
+		<a href="/"><img src="/assets/images/logo_small.png" height="30" width="118" alt="" class="logo"></a>
 		<form id="f" action="/search" class="search">
-			<input type="text" id="q" name="q" value="<?php echo isset($_GET['q'])?$_GET['q']:""; ?>" class="search_bar" />
-			<button id="s">Search</button>
+			<div class="controls clearfix">
+				<input type="text" id="q" name="q" value="<?php echo isset($_GET['q'])?$_GET['q']:""; ?>" class="search_bar" />
+				<button id="s" class="btn btn-small">Search</button>
+			</div>
 		</form>
 		<div id="count"></div>
 	</div>
 
-	<div id="main">
+	<div id="main" class="clearfix">
 		<ul id="tiles"></ul>
 	</div>
 
 	<style>
-		#count {
-			color: #fff;
-			font-size: 20px;
-			margin: 0;
-		}
 		#popup {
 			width: 800px;
 			height: 500px;
