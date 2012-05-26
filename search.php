@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="/assets/fancybox/jquery.fancybox-1.3.4.css" />
 </head>
 <body>
-	
+
 	<div id="header">
 		<a href="/"><img src="/assets/images/logo_small.png" height="30" width="118" alt="" class="logo"></a>
 		<form id="f" action="/search" class="search">
@@ -20,11 +20,11 @@
 		</form>
 		<div id="count"></div>
 	</div>
-		
+
 	<div id="main">
 		<ul id="tiles"></ul>
 	</div>
-	
+
 	<style>
 		#popup {
 			width: 800px;
@@ -87,18 +87,16 @@
 	<script defer src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
 	<script>
 		(function(window,undefined){
-
-			// Prepare our Variables
-			var
-				History = window.History,
+			var History = window.History,
 				$ = window.jQuery,
 				document = window.document;
-
-			// Check to see if History.js is enabled for our Browser
 			if ( !History.enabled ) {
 				return false;
 			}
-		})()
+			$(function(){
+
+			})
+		})(window);
 	</script>
 	<script>
 		var totalpages = 0,
@@ -149,12 +147,12 @@
 							newimg = new Image()
 							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
-								if(this.width == 200){
+								//if(this.width == 200){
 									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 									if(handler) handler.wookmarkClear();
 									handler = $('#tiles li');
 									handler.wookmark(options);
-								}
+								//}
 							}
 						})
 					})
