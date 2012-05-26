@@ -97,8 +97,16 @@
 
 			})
 		})(window);
-	</script>
-	<script>
+	
+		// Prepare layout options.
+		var options = {
+			autoResize: true, // This will auto-update the layout when the browser window is resized.
+			container: $('#main'), // Optional, used for some extra CSS styling
+			offset: 10, //, // Optional, the distance between grid items
+			itemWidth: 200 // Optional, the width of a grid item
+		};
+
+
 		var totalpages = 0,
 			api_key = "HTMQFSCKKB",
 			current_page = 1,
@@ -138,8 +146,6 @@
 					searchTerms: options.searchTerm,
 					wskey: api_key,
 					qf: "TYPE:IMAGE",
-					qf: "NOT RIGHTS:http://www.europeana.eu/rights/rr-p/",
-					qf: "NOT RIGHTS:http://www.europeana.eu/rights/rr-3/",
 					startPage: options.page
 				}, function(data){
 					totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
@@ -150,7 +156,7 @@
 							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
 								//if(this.width == 200){
-									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
+									$("#tiles").append("<li width='"+this.width+"' height='"+this.height+"'><a class='imagepopup' href='#popup'><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 									if(handler) handler.wookmarkClear();
 									handler = $('#tiles li');
 									handler.wookmark(options);
@@ -196,19 +202,8 @@
 				return false
 			})
 		})
-	</script>
 
-	<!-- Once the page is loaded, initalize the plug-in. -->
-	<script type="text/javascript">
 		var handler = null;
-
-		// Prepare layout options.
-		var options = {
-			autoResize: true, // This will auto-update the layout when the browser window is resized.
-			container: $('#main'), // Optional, used for some extra CSS styling
-			offset: 4//, // Optional, the distance between grid items
-			//itemWidth: 210 // Optional, the width of a grid item
-		};
 
 		/**
 		 * When scrolled all the way to the bottom, add more tiles.
