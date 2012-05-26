@@ -153,7 +153,7 @@
 					$.each(data.items, function(i){
 						$.getJSON(data.items[i].link+"&callback=?", function(item){
 							newimg = new Image()
-							newimg.src = "http://social.apps.lv/image.php?w=176&zc=2&src="+encodeURIComponent(item['europeana:object'])
+							newimg.src = "http://social.apps.lv/image.php?w=180&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
 								//if(this.width == 200){
 									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
