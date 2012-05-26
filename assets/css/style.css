@@ -24,14 +24,33 @@ header h1 {
 .start .search_block .search-button { height: 36px; margin-top: -10px; }
 .start .featured { color: #777; margin: 20px 60px 0 0; }
 .start .featured a { color: #777; }
-
 .start .about { margin-top: 60px; display: none; }
 .start .about a { color: #777; }
+
+
+/** Rezult page */
+#header {
+  height: 40px;
+  background-color: #3d261a;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  margin-bottom: 0;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#header .logo { margin: 5px 0 0 10px; }
+#header form.search { display: inline; margin-left: 20px; }
+/*#header form.search inpu {  }*/
+
 
 /** Grid container */
 #tiles {
   list-style-type: none;
-  position: relative; /** Needed to ensure items are laid out relative to this container **/
+  /*position: relative; /** Needed to ensure items are laid out relative to this container **/*/
   margin: 0;
 }
 
