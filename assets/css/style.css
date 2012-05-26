@@ -30,7 +30,7 @@ header h1 {
 #header {
   top: 0;
   height: 40px;
-  background-color: #3d261a;
+  background: #3d261a url(/assets/images/header.png);
   position: fixed;
   right: 0;
   left: 0;
