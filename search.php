@@ -22,9 +22,11 @@
 		</form>
 		<div id="count"></div>
 	</div>
-
-	<div id="main" class="clearfix">
-		<ul id="tiles"></ul>
+	
+	<div>
+		<div id="main" class="clearfix">
+			<ul id="tiles"></ul>
+		</div>
 	</div>
 
 	<style>

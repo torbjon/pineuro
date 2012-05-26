@@ -28,6 +28,7 @@ header h1 {
 
 /** Rezult page */
 #header {
+  top: 0;
   height: 40px;
   background-color: #3d261a;
   position: fixed;
@@ -53,7 +54,7 @@ header h1 {
 
 
 /** Grid container */
-#main { padding: 30px 0 30px 0; margin-top: 30px; }
+#main { padding: 30px 0 30px 0; }
 #tiles { 
   list-style-type: none;
   margin: 0;
