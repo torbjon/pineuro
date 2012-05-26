@@ -32,33 +32,45 @@
 			background-color: #333;
 			z-index: 1000;
 			/*border: 2px solid #000;*/
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
 		}
 		#popup_img {
 			float: left;
-			margin: 15px;
+			/*margin: 15px;*/
 			width: 500px;
-			height: 470px;
+			height: 500px;
 			background: #333 no-repeat center center;
+			-webkit-border-top-left-radius: 4px;
+			-webkit-border-bottom-left-radius: 4px;
+			-moz-border-radius-topleft: 4px;
+			-moz-border-radius-bottomleft: 4px;
+			border-top-left-radius: 4px;
+			border-bottom-left-radius: 4px;
 		}
 		#popup_side {
 			float: left;
-			margin: 15px auto;
+			/*margin: 15px auto;*/
 			padding: 15px;
-			width: 225px;
-			height: 440px;
+			width: 270px;
+			height: 470px;
 			background-color: #efefef;
-			-webkit-border-radius: 2px;
-			-moz-border-radius: 2px;
-			border-radius: 2px;
+			-webkit-border-top-right-radius: 4px;
+			-webkit-border-bottom-right-radius: 4px;
+			-moz-border-radius-topright: 4px;
+			-moz-border-radius-bottomright: 4px;
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
 		}
 		#popup_img_title {
 			background-color: rgba(0,0,0,0.7);
 			font-size: 14px;
 			color: #fff;
 			padding: 10px 7px;
-			-webkit-border-radius: 2px;
-			-moz-border-radius: 2px;
-			border-radius: 2px;
+			-webkit-border-top-left-radius: 4px;
+			-moz-border-radius-topleft: 4px;
+			border-top-left-radius: 4px;
 		}
 		#popup_side ul {
 			list-style-type: none;
@@ -70,6 +82,7 @@
 		#popup_side li {
 			padding-left: 5px;
 		}
+		.fancybox-bg { display:none; }
 	</style>
 	<div style="display:none;">
 		<div id="popup">
@@ -90,10 +103,9 @@
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script src="/assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script src="/assets/fancybox/jquery.fancybox-1.3.4.js"></script>
 	<script src="/assets/fancybox/jquery.easing-1.3.pack.js"></script>
 	<script src="/assets/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-	<script src=""></script>
 	<script src="/assets/js/wookmark.js"></script>
 	<script src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
 	<script>
@@ -220,7 +232,10 @@
 					'transitionIn'	: 'elastic',
 					'transitionOut'	: 'elastic',
 					'easingIn'      : 'easeOutBack',
-					'easingOut'     : 'easeInBack'
+					'easingOut'     : 'easeInBack',
+					'overlayOpacity': 0.9
+					// 'cyclic'				: true,
+					// 'opacity': true
 				})
 				return false
 			})
