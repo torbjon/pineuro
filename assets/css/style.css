@@ -54,7 +54,7 @@ header h1 {
 
 
 /** Grid container */
-#main { padding: 30px 0 30px 0; margin-top: 22px; position: relative; }
+#main { margin: 50px 0px 30px; position: relative; }
 #tiles { 
   list-style-type: none;
   margin: 0;

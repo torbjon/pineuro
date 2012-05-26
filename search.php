@@ -21,7 +21,7 @@
 		<div id="count"></div>
 	</div>
 
-	<div id="main">
+	<div id="main" class="clearfix">
 		<ul id="tiles"></ul>
 	</div>
 
