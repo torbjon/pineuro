@@ -153,7 +153,12 @@
 									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 									if(handler) handler.wookmarkClear();
 									handler = $('#tiles li');
-									handler.wookmark(options);
+									handler.wookmark({
+			autoResize: true, // This will auto-update the layout when the browser window is resized.
+			container: $('#main'), // Optional, used for some extra CSS styling
+			offset: 20 // Optional, the distance between grid items
+			//itemWidth: 210 // Optional, the width of a grid item
+		});
 								//}
 							}
 						})
@@ -206,7 +211,7 @@
 		var options = {
 			autoResize: true, // This will auto-update the layout when the browser window is resized.
 			container: $('#main'), // Optional, used for some extra CSS styling
-			offset: 4//, // Optional, the distance between grid items
+			offset: 20 // Optional, the distance between grid items
 			//itemWidth: 210 // Optional, the width of a grid item
 		};
 
