@@ -147,7 +147,7 @@
 					$.each(data.items, function(i){
 						$.getJSON(data.items[i].link+"&callback=?", function(item){
 							newimg = new Image()
-							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
+							newimg.src = "http://social.apps.lv/image.php?w=176&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
 								//if(this.width == 200){
 									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
@@ -206,8 +206,8 @@
 		var options = {
 			autoResize: true, // This will auto-update the layout when the browser window is resized.
 			container: $('#main'), // Optional, used for some extra CSS styling
-			offset: 4//, // Optional, the distance between grid items
-			//itemWidth: 210 // Optional, the width of a grid item
+			offset: 20, // Optional, the distance between grid items
+			itemWidth: 180 // Optional, the width of a grid item
 		};
 
 		/**
