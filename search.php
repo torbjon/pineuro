@@ -5,10 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>europ.in</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta charset="utf-8" />
 
-	<link rel="stylesheet" href="/assets/css/reset.css">
-	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" href="/assets/css/reset.css" />
+	<link rel="stylesheet" href="/assets/css/style.css" />
+	<link rel="stylesheet" href="/assets/fancybox/jquery.fancybox-1.3.4.css" />
 </head>
 
 <body>
@@ -33,10 +35,6 @@
 			margin: 0;
 		}
 		#popup {
-			display: none;
-			position: absolute;
-			top: 100px;
-			left: 100px;
 			width: 800px;
 			height: 500px;
 			background-color: #333;
@@ -48,7 +46,7 @@
 			margin: 15px;
 			width: 500px;
 			height: 470px;
-			background: #dedede url("http://social.apps.lv/image.php?cc=dedede&w=470&h=470&zc=2&src=http%3A%2F%2Fzudusilatvija.lv%2Fstatic%2Ffiles%2F11%2F02%2F09%2FSaldus-Gimnazija_1_png_600x375_watermark-zl_watermark-r20xb20_q85.jpg") no-repeat center center;
+			background: #dedede no-repeat center center;
 		}
 		#popup_side {
 			float: left;
@@ -57,16 +55,6 @@
 			width: 225px;
 			height: 440px;
 			background-color: #efefef;
-		}
-		#popup_background {
-			display: none;
-			position: relative;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			background-color: rgba(0,0,0,0.8);
-			z-index: 5;
 		}
 		#popup_img_title {
 			background-color: rgba(0,0,0,0.7);
@@ -85,22 +73,24 @@
 			padding-left: 5px;
 		}
 	</style>
-	<div id="popup_background"></div>
-	<div id="popup">
-			<div id="popup_img">
-				<div id="popup_img_title">Saldus vidusskola</div>
-			</div>
-			<div id="popup_side">
-				<ul>
-					<lh>Country:</lh>
-					<li>Latvia</li>
-					<lh>Provider:</lh>
-					<li>Latvijas nacionālā bibliotēka</li>
-				</ul>
-			</div>
+	<div style="display:none;">
+		<div id="popup">
+				<div id="popup_img">
+					<div id="popup_img_title">Saldus vidusskola</div>
+				</div>
+				<div id="popup_side">
+					<ul>
+						<lh>Country:</lh>
+						<li>Latvia</li>
+						<lh>Provider:</lh>
+						<li>Latvijas nacionālā bibliotēka</li>
+					</ul>
+				</div>
+		</div>
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 	<script src="/assets/js/wookmark.js"></script>
 	<script>
 		var totalpages = 0,
@@ -151,7 +141,7 @@
 							newimg = new Image()
 							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
-								$("#tiles").append("<li><img data-url='"+item['europeana:uri']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></li>")
+								$("#tiles").append("<li><a class='imagepopup' href='#popup'><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 								if(handler) handler.wookmarkClear();
 								handler = $('#tiles li');
 								handler.wookmark(options);
@@ -182,7 +172,13 @@
 				})
 			}
 			$("#tiles").on("click", "img", function(){
-				alert($(this).data("url"))
+				$("#popup_img").css("background-image", 'url("http://social.apps.lv/image.php?cc=dedede&w=470&h=470&zc=2&src="'+$(this).data("imgsrc")+')')
+				$("#popup_img_title").html($(this).data("title"))
+				console.log($("#popup"))
+				$(".imagepopup").fancybox({
+					'width': 800,
+					'height': 500
+				})
 			})
 		})
 	</script>
