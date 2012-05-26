@@ -135,7 +135,7 @@
 
 		function load_images(options){
 			$.getJSON("http://api.europeana.eu/api/opensearch.json?callback=?", {
-					searchTerms: options.searchTerm + " what:photography",
+					searchTerms: options.searchTerm,
 					wskey: api_key,
 					qf: "TYPE:IMAGE",
 					qf: "NOT RIGHTS:http://www.europeana.eu/rights/rr-p/",
