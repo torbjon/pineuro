@@ -15,10 +15,8 @@
 	<div id="header">
 		<a href="/"><img src="/assets/images/logo_small.png" height="30" width="118" alt="" class="logo"></a>
 		<form id="f" action="/search" class="search">
-			<div class="controls clearfix">
-				<input type="text" id="q" name="q" value="<?php echo isset($_GET['q'])?$_GET['q']:""; ?>" class="search_bar" />
-				<button id="s" class="btn btn-small">Search</button>
-			</div>
+			<input type="text" id="q" name="q" value="<?php echo isset($_GET['q'])?$_GET['q']:""; ?>" class="search_bar" />
+			<button id="s" class="btn btn-small">Search</button>
 		</form>
 		<div id="count"></div>
 	</div>
