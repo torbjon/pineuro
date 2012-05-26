@@ -140,6 +140,7 @@
 						$.getJSON(data.items[i].link+"&callback=?", function(item){
 							newimg = new Image()
 							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
+							console.log(newimg.width())
 							newimg.onload = function(){
 								$("#tiles").append("<li><a class='imagepopup' href='#popup'><img data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 								if(handler) handler.wookmarkClear();
