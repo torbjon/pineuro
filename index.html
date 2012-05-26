@@ -33,13 +33,13 @@
 			searchTerm = "Saldus";
 		$("#f").submit(function(){
 			if($("#q").val() != ""){
-				document.location.hash = "!/search/"+encodeURIComponent($("#q").val())
+				document.location.hash = "!/search/"+encodeURIComponent($.trim($("#q").val()))
 			}
 			return false
 		})
 		$("#s").on("click", function(){
 			if($("#q").val() != ""){
-				document.location.hash = "!/search/"+encodeURIComponent($("#q").val())
+				document.location.hash = "!/search/"+encodeURIComponent($.trim($("#q").val()))
 				$("#main").css({height: 0})
 				current_page = 1
 				$("#tiles").html("")
