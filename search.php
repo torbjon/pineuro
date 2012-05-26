@@ -84,7 +84,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript" src="/assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 	<script src="/assets/js/wookmark.js"></script>
-	<script defer src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+	<script src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
 	<script>
 		(function(window,undefined){
 			var History = window.History,
@@ -209,14 +209,6 @@
 		})
 
 		var handler = null;
-
-		// Prepare layout options.
-		var options = {
-			autoResize: true, // This will auto-update the layout when the browser window is resized.
-			container: $('#main'), // Optional, used for some extra CSS styling
-			offset: 4 // Optional, the distance between grid items
-			//itemWidth: 210 // Optional, the width of a grid item
-		};
 
 		/**
 		 * When scrolled all the way to the bottom, add more tiles.
