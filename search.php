@@ -15,7 +15,7 @@
 
 	<div id="header">
 		<form id="f" action="/search">
-			<input type="text" id="q" value="<?php echo isset($_GET['q'])?$_GET['q']:""; ?>" />
+			<input type="text" id="q" name="q" value="<?php echo isset($_GET['q'])?$_GET['q']:""; ?>" />
 			<button id="s">Search</button>
 		</form>
 	</div>
