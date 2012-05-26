@@ -1,5 +1,5 @@
 /** General page styling **/
-html { background: url(../images/bg.gif); }
+html { background: url(/assets/images/bg.gif); }
 #main { padding: 30px 0 30px 0; }
 
 header h1 {
