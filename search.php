@@ -174,7 +174,9 @@
 			$("#tiles").on("click", "img", function(){
 				$("#popup_img").css("background-image", 'url("http://social.apps.lv/image.php?cc=dedede&w=470&h=470&zc=2&src="'+$(this).data("imgsrc")+')')
 				$("#popup_img_title").html($(this).data("title"))
-				console.log($("#popup"))
+				$(".imagepopup").on("click", function(){
+					return false
+				})
 				$(".imagepopup").fancybox({
 					'width': 800,
 					'height': 500
