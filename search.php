@@ -84,6 +84,22 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script type="text/javascript" src="/assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 	<script src="/assets/js/wookmark.js"></script>
+	<script defer src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+	<script>
+		(function(window,undefined){
+
+			// Prepare our Variables
+			var
+				History = window.History,
+				$ = window.jQuery,
+				document = window.document;
+
+			// Check to see if History.js is enabled for our Browser
+			if ( !History.enabled ) {
+				return false;
+			}
+		})()
+	</script>
 	<script>
 		var totalpages = 0,
 			api_key = "HTMQFSCKKB",
