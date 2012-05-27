@@ -21,6 +21,7 @@ header h1 {
 	border-radius: 4px;
 	font-size: 24px;
 	background:  white url(/assets/images/search_small.png) no-repeat 98% 50%;
+  padding-right: 50px;
 }
 .start .search_block .search-button {
 	position: absolute;
@@ -66,6 +67,7 @@ header h1 {
 	border-radius: 4px;
 	width: 200px;
 	background:  white url(/assets/images/search_new.png) no-repeat 100% 50%;
+  padding-right: 30px;
 }
 #header form.search .btn {
 	position: absolute;
