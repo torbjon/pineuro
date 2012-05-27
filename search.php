@@ -70,6 +70,7 @@ endif;
 	<script src="/assets/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 	<script src="/assets/js/wookmark.js"></script>
 	<script src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+	<script src="/assets/js/app.js"></script>
 	<script>
 		var searchTerm = "<?php echo isset($_GET['q'])?$_GET['q']:""; ?>";
 	</script>
