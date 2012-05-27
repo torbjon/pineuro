@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="/assets/fancybox/jquery.fancybox-1.3.4.css" />
 	<?php
 	if(isset($_GET['itemid'])):
-		$ch = curl_init("http://www.europeana.eu/portal/record/".$_GET['itemid'].".json?wskey=HTMQFSCKKB");
+		$ch = curl_init("http://europ.in/request_object.php?uri=".rawurlencode("http://www.europeana.eu/portal/record/".$_GET['itemid'].".json?wskey=HTMQFSCKKB"));
 		curl_setopt_array($ch, array(
 			CURLOPT_HEADER => 0,
 			CURLOPT_RETURNTRANSFER => 1,
