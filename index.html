@@ -23,14 +23,6 @@
 			</form>
 		</div>
 		<script>
-			var examples = [
-				"Eiffel Tower",
-				"Saldus",
-				"Rīga",
-				"Salvador Dali",
-				"Sigmund Freud",
-				"Latvija"
-			]
 			function RandomList(list, alias) {
 				if (!list) { return; }
 				var length = list.length;
@@ -48,13 +40,23 @@
 					this.indexes[this.indexes.length] = length;
 				}
 			}
-			var examplelist = new RandomList(examples)
+			var examplelist = new RandomList([
+				"Eiffel Tower",
+				"Saldus",
+				"Rīga",
+				"Salvador Dali",
+				"Sigmund Freud",
+				"Latvija"
+			])
+			examples = []
 			for(i = 0; i <= 2; i++){
-				console.log(examplelist.getItem())
+				var item = examplelist.getItem()
+				examples.push('<a href="/search?q='+encodeURIComponent(item)+'">'+item+'</a>')
 			}
+			console.log(examples)
 		</script>
 		<div class="featured">
-			Examples: <a href="/search?q=Eiffel+Tower">Eiffel Tower</a>, <a href="/search?q=Salvador+Dali">Salvador Dali</a>, <a href="/search?q=Sigmund+Freud">Sigmund Freud</a>
+			Examples:
 		</div>
 		<div class="about">
 			<a href="/about">About</a>
