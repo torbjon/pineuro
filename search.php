@@ -120,7 +120,7 @@
 
 			})
 		})(window);
-	
+
 		var totalpages = 0,
 			api_key = "HTMQFSCKKB",
 			current_page = 1,
@@ -193,7 +193,7 @@
 							newimg.src = "http://social.apps.lv/image.php?w=196&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
 								//if(this.width == 200){
-									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-originaluri='"+item['europeana:uri']+"' data-provider='"+item['europeana:provider']+"' data-country='"+item['europeana:country']+"' data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
+									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-originaluri='"+item['europeana:uri']+"' data-provider='"+item['europeana:provider']+"' data-country='"+item['europeana:country']+"' data-imgsrc='"+item['europeana:object'].replace(" ","%20")+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 									if(handler) handler.wookmarkClear();
 									wookmarking();
 								//}
