@@ -58,8 +58,8 @@ function load_images(options){
 							$("#tiles").append(
 								"<li><a class='imagepopup' href='#popup'><img width='"+this.width+
 								"' height='"+this.height+
-								"' data-subjects='"+encodeURIComponent(subjects.join())+
-								"' data-description='"+encodeURIComponent(item['dc:description'])+
+								"' data-subjects=\""+encodeURIComponent(subjects.join())+
+								"\" data-description='"+encodeURIComponent(item['dc:description'])+
 								"' data-originaluri='"+item['europeana:uri']+
 								"' data-provider='"+item['europeana:provider']+
 								"' data-country='"+item['europeana:country']+
