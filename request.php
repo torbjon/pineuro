@@ -4,7 +4,7 @@ function getjson(){
 	$data = "";
 	$params = http_build_query(array_merge($_GET, array("wskey"=>"HTMQFSCKKB")));
 	$filename = md5($params).".json";
-	if(file_exists(CACHE_PATH.$filename)){
+	if(file_exists(CACHE_PATH.$filename."dadasda")){
 		$data = file_get_contents(CACHE_PATH.$filename);
 	} else {
 		$ch = curl_init();
