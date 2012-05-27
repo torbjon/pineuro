@@ -105,8 +105,12 @@ $(function(){
 			$("#datacountry").html($(this).children("img").data("country").capitalize())
 			$("#dataprovider").html($(this).children("img").data("provider"))
 			$("#dataoriginaluri").html('<a target="_blank" href="'+$(this).children("img").data("originaluri")+'">'+$(this).children("img").data("originaluri")+'</a>')
-			$("#datasubjects").html(decodeURIComponent($(this).children("img").data("subjects")))
-			console.log($(this).children("img").data("subjects"))
+			if($(this).children("img").data("subjects").length){
+				$("#datasubjects").prev("lh").show()
+				$("#datasubjects").html(decodeURIComponent($(this).children("img").data("subjects")))
+			} else {
+				$("#datasubjects").prev("lh").hide()
+			}
 			if($(this).children("img").data("description") != undefined){
 				$("#datadescription").html(decodeURIComponent($(this).children("img").data("description")))
 			}
