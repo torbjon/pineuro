@@ -54,7 +54,7 @@ function load_images(options){
 								subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'][i].replace("'","%27"))+"'>"+item['dc:subject'][i]+"</a>")
 							})
 						} else if(typeof(item['dc:subject']) == "string") {
-							subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'])+"'>"+item['dc:subject']+"</a>")
+							subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'].replace("'","%27"))+"'>"+item['dc:subject']+"</a>")
 						}
 						//if(this.width == 200){
 							$("#tiles").append(
