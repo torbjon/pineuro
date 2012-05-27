@@ -73,7 +73,19 @@
 				} else {
 					$("#popup_img_title").html("")
 				}
-				fancing();
+				$.fancybox(
+					$("#popup"),
+					{
+						'width'			: 800,
+						'height'		: 500,
+						'padding'		: 0,
+						'centerOnScroll': true,
+						'transitionIn'	: 'elastic',
+						'transitionOut'	: 'elastic',
+						'easingIn'		: 'easeOutBack',
+						'easingOut'		: 'easeInBack'
+					}
+				);
 			})
 		})
 	</script>
