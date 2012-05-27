@@ -181,7 +181,7 @@ header h1 {
 	padding: 0 !important;
 	margin: 10px 0 5px;
 	_height: expression( this.scrollHeight > 332 ? "333px" : "auto" );
-	max-height: 200px;
+	max-height: 160px;
 	overflow: scroll;
 }
 .fb-like {
