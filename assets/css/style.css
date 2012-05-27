@@ -27,16 +27,19 @@ header h1 {
 	top: 0;
 	z-index: 1;
 	padding: 0;
-	width: 25px;
-	height: 24px;
+  width: 40px;
+  height: 40px;
 	font-size: 10px;
 	overflow: hidden;
 	opacity: 0;
 }
 .start .featured { margin: 54px 0px 0 0; color: #777; }
 .start .featured a { color: #777; }
-.start .about { display: none; margin-top: 60px; }
-.start .about a { color: #777; }
+.start .about { margin-top: 60px; }
+.start .about a { color: #999; }
+
+.modal_about { background: #fff; padding: 20px; }
+
 /** Rezult page */
 #header {
 	position: fixed;
