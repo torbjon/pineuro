@@ -60,6 +60,8 @@ endif;
 					<li id="dataprovider"></li>
 					<lh>Europeana URI:</lh>
 					<li id="dataoriginaluri"></li>
+					<lh>Subjects:</lh>
+					<li id="datasubjects"></li>
 				</ul>
 			</div>
 		</div>
