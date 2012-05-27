@@ -59,25 +59,20 @@
 ?>
 	<script>
 		$(function(){
-			$("body").queue(function(){
-				$.getJSON("http://www.europeana.eu/portal/record/<?php echo $_GET['itemid']; ?>.json?wskey=HTMQFSCKKB&callback=?", function(item){
-					$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=333&w=470&h=470&zc=2&src='+encodeURIComponent(item['europeana:object']))
-					if(item['dc:title'] != undefined){
-						$("#popup_img_title").html(item['dc:title'])
-						$("#datacountry").html(item['dc:title'])
-						$("#dataprovider").html(item['europeana:country'])
-						$("#dataoriginaluri").html('<a target="_blank" href="'+item['europeana:uri']+'">'+item['europeana:uri']+'</a>')
-						if(item['dc:description'] != undefined){
-							$("#datadescription").html(item['dc:description'])
-						}
-						$("#pinbutton").children("a").attr("href", "http://pinterest.com/pin/create/button/?url="+encodeURIComponent(document.location.href)+"&media="+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20"))+"&description="+encodeURIComponent(item['dc:title']))
-					} else {
-						$("#popup_img_title").html("")
+			$.getJSON("http://www.europeana.eu/portal/record/<?php echo $_GET['itemid']; ?>.json?wskey=HTMQFSCKKB&callback=?", function(item){
+				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=333&w=470&h=470&zc=2&src='+encodeURIComponent(item['europeana:object']))
+				if(item['dc:title'] != undefined){
+					$("#popup_img_title").html(item['dc:title'])
+					$("#datacountry").html(item['dc:title'])
+					$("#dataprovider").html(item['europeana:country'])
+					$("#dataoriginaluri").html('<a target="_blank" href="'+item['europeana:uri']+'">'+item['europeana:uri']+'</a>')
+					if(item['dc:description'] != undefined){
+						$("#datadescription").html(item['dc:description'])
 					}
-				});
-				$(this).dequeue();
-			})
-			$("body").queue(function(){
+					$("#pinbutton").children("a").attr("href", "http://pinterest.com/pin/create/button/?url="+encodeURIComponent(document.location.href)+"&media="+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20"))+"&description="+encodeURIComponent(item['dc:title']))
+				} else {
+					$("#popup_img_title").html("")
+				}
 				$.fancybox(
 					$("#popup").html(),
 					{
@@ -90,8 +85,7 @@
 						'easingIn'		: 'easeOutBack',
 						'easingOut'		: 'easeInBack'
 					}
-				);
-				$(this).dequeue();
+				)
 			})
 		})
 	</script>
