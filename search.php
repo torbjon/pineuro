@@ -9,20 +9,20 @@
 	<link rel="stylesheet" href="/assets/css/style.css" />
 	<link rel="stylesheet" href="/assets/css/bootstrap.css" />
 	<link rel="stylesheet" href="/assets/fancybox/jquery.fancybox-1.3.4.css" />
-<?php
-if(isset($_GET['itemid'])):
-	$ch = curl_init("http://www.europeana.eu/portal/record/".$_GET['itemid'].".json?wskey=HTMQFSCKKB");
-	curl_setopt_array($ch, array(
-		CURLOPT_HEADER => 0,
-		CURLOPT_RETURNTRANSFER => 1,
-		CURLOPT_TIMEOUT => 40,
-		CURLOPT_FOLLOWLOCATION => 1
-	));
-	$data = curl_exec($ch);
-	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	if($httpcode >= 200 && $httpcode < 400):
-		$data = (array)json_decode($data);
-?>
+	<?php
+	if(isset($_GET['itemid'])):
+		$ch = curl_init("http://www.europeana.eu/portal/record/".$_GET['itemid'].".json?wskey=HTMQFSCKKB");
+		curl_setopt_array($ch, array(
+			CURLOPT_HEADER => 0,
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_TIMEOUT => 40,
+			CURLOPT_FOLLOWLOCATION => 1
+		));
+		$data = curl_exec($ch);
+		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+		if($httpcode >= 200 && $httpcode < 400):
+			$data = (array)json_decode($data);
+	?>
 	<meta property="og:title" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:title"]); ?>" />
 	<meta property="og:image" content="<?php echo $data["europeana:object"]; ?>" />
 	<meta property="og:description" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:description"]); ?>" />
