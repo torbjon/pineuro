@@ -50,10 +50,13 @@ function load_images(options){
 					newimg.src = "http://social.apps.lv/image.php?w=196&zc=2&src="+encodeURIComponent(item['europeana:object'])
 					newimg.onload = function(){
 						var subjects = []
-						console.log(typeof(item['dc:subject']))
-						$.each(item['dc:subject'], function(i){
-							subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'][i])+"'>"+item['dc:subject'][i]+"</a>")
-						})
+						if(typeof(item['dc:subject']) == "object"){
+							$.each(item['dc:subject'], function(i){
+								subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'][i])+"'>"+item['dc:subject'][i]+"</a>")
+							})
+						} else if(typeof(item['dc:subject']) == "string") {
+							subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'])+"'>"+item['dc:subject']+"</a>")
+						}
 						//if(this.width == 200){
 							$("#tiles").append(
 								"<li><a class='imagepopup' href='#popup'><img width='"+this.width+
