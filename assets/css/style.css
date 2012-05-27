@@ -15,7 +15,7 @@ header h1 {
 .start .search_block form { position: absolute; margin-left: 46px; }
 .start .search_block input.search {
   padding: 4px;
-  width: 400px; 
+  width: 400px;
   border: 1px solid #ccc;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -23,7 +23,7 @@ header h1 {
   font-size: 24px;
   background:  white url(/assets/images/search.png) no-repeat 100% 50%;
 }
-.start .search_block .search-button { 
+.start .search_block .search-button {
   position: absolute;
   right: 0;
   top: 0;
@@ -51,13 +51,13 @@ header h1 {
   height: 40px;
   background: #3d261a url(/assets/images/header.png);
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); 
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 #header .logo { margin: 5px 20px 0 10px; }
 #header form.search { position: absolute; top: 7px; z-index: 1; left: 160px; }
-#header form.search .search_bar { 
-  padding: 4px; 
+#header form.search .search_bar {
+  padding: 4px;
   border: 1px solid #2b1003;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -84,7 +84,7 @@ header h1 {
 #main { position: relative; margin: 50px 0px 30px; }
 #tiles {
   position: relative; /** Needed to ensure items are laid out relative to this container */
-  margin: 0; 
+  margin: 0;
   list-style-type: none;
 }
 
@@ -107,3 +107,7 @@ header h1 {
 #tiles ali:nth-child(3n) { height: 175px; }
 #tiles ali:nth-child(4n-3) { padding-bottom: 30px; }
 #tiles ali:nth-child(5n) { height: 250px; }
+
+#fancybox-outer {
+	background: none !important;
+}
