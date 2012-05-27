@@ -21,6 +21,8 @@ function getjson(){
 			file_put_contents(CACHE_PATH.$filename, $data);
 		endif;
 	}
-	echo (isset($_GET['callback'])?$_GET['callback']:"").$data.(isset($_GET['callback'])?")":"");
+	echo $data;
+
+	//(isset($_GET['callback'])?$_GET['callback']:"").$data.(isset($_GET['callback'])?")":"");
 }
 getjson();
