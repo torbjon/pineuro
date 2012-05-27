@@ -79,7 +79,7 @@
 			})
 			$("body").queue(function(){
 				$.fancybox(
-					$("#popup"),
+					$("#popup").html(),
 					{
 						'width'			: 800,
 						'height'		: 500,
