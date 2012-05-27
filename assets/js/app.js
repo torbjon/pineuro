@@ -43,7 +43,7 @@ function load_images(options){
 		totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
 		$("#count").html(data.totalResults)
 		$.each(data.items, function(i){
-			$.getJSON(data.items[i].link+"&callback=?", function(item){
+			$.getJSON("/request_object.php?uri="+encodeURIComponent(data.items[i].link), function(item){
 				if(item['europeana:object'] != undefined){
 					newimg = new Image()
 					newimg.src = "http://social.apps.lv/image.php?w=196&zc=2&src="+encodeURIComponent(item['europeana:object'])
