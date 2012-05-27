@@ -35,6 +35,8 @@
 					<li id="dataprovider"></li>
 					<lh>Europeana URI:</lh>
 					<li id="dataoriginaluri"></li>
+					<lh>Description:</lh>
+					<li id="datadescription"></li>
 				</ul>
 			</div>
 		</div>
