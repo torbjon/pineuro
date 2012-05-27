@@ -163,3 +163,6 @@ header h1 {
 .fancybox-bg {
 	display: none !important;
 }
+#dataoriginaluri a {
+	text-overflow: ellipsis;
+}
