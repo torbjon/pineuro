@@ -25,21 +25,20 @@
 	<div style="display:none;">
 		<div id="popup">
 			<div id="popup_img">
-				<div id="popup_img_title">Saldus vidusskola</div>
+				<div id="popup_img_title"></div>
 			</div>
 			<div id="popup_side">
 				<div id="pinbutton">
 					<a href="" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
 				</div>
 				<ul>
+					<li id="datadescription"></li>
 					<lh>Country:</lh>
 					<li id="datacountry"></li>
 					<lh>Provider:</lh>
 					<li id="dataprovider"></li>
 					<lh>Europeana URI:</lh>
 					<li id="dataoriginaluri"></li>
-					<lh>Description:</lh>
-					<li id="datadescription"></li>
 				</ul>
 			</div>
 		</div>

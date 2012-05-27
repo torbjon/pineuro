@@ -168,3 +168,9 @@ header h1 {
 	overflow: hidden;
 	display: block;
 }
+#datadescription {
+	margin-bottom: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 250px;
+}
