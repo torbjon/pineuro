@@ -1,5 +1,6 @@
 <?php
 define("CACHE_PATH", $_SERVER['DOCUMENT_ROOT']."/cache/");
+echo CACHE_PATH;
 function getjson(){
 	$data = "";
 	$params = http_build_query(array_merge($_GET, array("wskey"=>"HTMQFSCKKB")));
