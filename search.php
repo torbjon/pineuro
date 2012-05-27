@@ -28,6 +28,9 @@
 				<div id="popup_img_title">Saldus vidusskola</div>
 			</div>
 			<div id="popup_side">
+				<div id="pinbutton">
+					<a href="" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+				</div>
 				<ul>
 					<lh>Country:</lh>
 					<li id="datacountry"></li>
@@ -51,5 +54,6 @@
 		var searchTerm = "<?php echo isset($_GET['q'])?$_GET['q']:""; ?>";
 	</script>
 	<script src="/assets/js/app.js"></script>
+	<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>

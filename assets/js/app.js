@@ -84,6 +84,7 @@ $(function(){
 			if($(this).children("img").data("description") != undefined){
 				$("#datadescription").html(decodeURIComponent($(this).children("img").data("description")))
 			}
+			$("#pinbutton").children("a").attr("href", "http://pinterest.com/pin/create/button/?url="+encodeURIComponent(document.location.href)+"&media="+encodeURIComponent($(this).children("img").data("imgsrc"))+"&description="+encodeURIComponent($(this).children("img").data("title")))
 		} else {
 			$("#popup_img_title").html("")
 		}
