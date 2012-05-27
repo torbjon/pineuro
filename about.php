@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>About - Europ.in - explore and share Europeana</title>
+  <title>About - Europ.in - explore and share Europeana content</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link href='http://fonts.googleapis.com/css?family=Droid+Sans&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/assets/css/reset.css" />
