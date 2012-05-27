@@ -121,14 +121,6 @@
 			})
 		})(window);
 	
-		// Prepare layout options.
-		// var options = {
-		// 	autoResize: true, // This will auto-update the layout when the browser window is resized.
-		// 	container: $('#main'),  // Optional, used for some extra CSS styling
-		// 	offset: 4 //, // Optional, the distance between grid items
-		// 	// itemWidth: 200 // Optional, the width of a grid item
-		// };
-
 		var totalpages = 0,
 			api_key = "HTMQFSCKKB",
 			current_page = 1,
@@ -162,6 +154,20 @@
 			}
 		})
 		*/
+
+		function fancing() {
+			$(".imagepopup").fancybox({
+					'width'					: 800,
+					'height'				: 500,
+					'padding'				: 0,
+					'centerOnScroll': true,
+					'transitionIn'	: 'elastic',
+					'transitionOut'	: 'elastic',
+					'easingIn'      : 'easeOutBack',
+					'easingOut'     : 'easeInBack'
+				})
+		}
+
 		function wookmarking(){
 			$('#tiles li').wookmark({
 				autoResize: true, // This will auto-update the layout when the browser window is resized.
@@ -169,6 +175,7 @@
 				offset: 4 // Optional, the distance between grid items
 				//itemWidth: 210 // Optional, the width of a grid item
 			});
+			fancing();
 		}
 
 		function load_images(options){
@@ -227,16 +234,7 @@
 				} else {
 					$("#popup_img_title").html("")
 				}
-				$(".imagepopup").fancybox({
-					'width'					: 800,
-					'height'				: 500,
-					'padding'				: 0,
-					'centerOnScroll': true,
-					'transitionIn'	: 'elastic',
-					'transitionOut'	: 'elastic',
-					'easingIn'      : 'easeOutBack',
-					'easingOut'     : 'easeInBack'
-				})
+				fancing();
 				return false
 			})
 		})

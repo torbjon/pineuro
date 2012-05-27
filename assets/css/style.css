@@ -10,18 +10,32 @@ header h1 {
 
 /** Start page */
 .start { margin: 0 auto; width: 500px; text-align: center; }
-.start .logo { margin: 100px 0 60px; }
+.start .logo { margin: 80px 0 40px; }
+.start .search_block { position: relative; }
+.start .search_block form { position: absolute; margin-left: 46px; }
 .start .search_block input.search {
   padding: 4px;
-  width: 350px; 
+  width: 400px; 
   border: 1px solid #ccc;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   font-size: 24px;
+  background:  white url(/assets/images/search.png) no-repeat 100% 50%;
 }
-.start .search_block .search-button { margin-top: -10px; height: 36px; }
-.start .featured { margin: 20px 60px 0 0; color: #777; }
+.start .search_block .search-button { 
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding: 0;
+  width: 25px;
+  height: 24px;
+  font-size: 10px;
+  overflow: hidden;
+  opacity: 0;
+}
+.start .featured { margin: 54px 0px 0 0; color: #777; }
 .start .featured a { color: #777; }
 .start .about { display: none; margin-top: 60px; }
 .start .about a { color: #777; }
