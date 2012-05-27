@@ -22,6 +22,37 @@
 				<button id="s" class="search-button btn btn-info">Search</button>
 			</form>
 		</div>
+		<script>
+			var examples = [
+				"Eiffel Tower",
+				"Saldus",
+				"Rīga",
+				"Salvador Dali",
+				"Sigmund Freud",
+				"Latvija"
+			]
+			function RandomList(list, alias) {
+				if (!list) { return; }
+				var length = list.length;
+				this.indexes = [];
+				this.remainingItems = function(){
+					return this.indexes.length;
+				};
+				this[alias || 'getItem'] = function(){
+					var rand = Math.floor(Math.random() * this.indexes.length),
+						item = list[this.indexes[rand]];
+					this.indexes.splice(rand, 1);
+					return item;
+				};
+				while (length--) {
+					this.indexes[this.indexes.length] = length;
+				}
+			}
+			var examplelist = new RandomList(examples)
+			for(i = 0, i <= 2, i++){
+				console.log(examplelist.getItem())
+			}
+		</script>
 		<div class="featured">
 			Examples: <a href="/search?q=Eiffel+Tower">Eiffel Tower</a>, <a href="/search?q=Salvador+Dali">Salvador Dali</a>, <a href="/search?q=Sigmund+Freud">Sigmund Freud</a>
 		</div>
