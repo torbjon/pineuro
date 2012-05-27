@@ -52,6 +52,7 @@
 	<script src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
 	<script>
 		var searchTerm = "<?php echo isset($_GET['q'])?$_GET['q']:""; ?>";
+		console.log("<?php echo $_GET['itemid']; ?>")
 	</script>
 	<script src="/assets/js/app.js"></script>
 	<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
