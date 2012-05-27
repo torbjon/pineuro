@@ -21,7 +21,7 @@ if(isset($_GET['itemid'])):
 	$data = curl_exec($ch);
 	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	if($httpcode >= 200 && $httpcode < 400):
-		$data = json_decode($data);
+		$data = (array)json_decode($data);
 ?>
 	<meta property="og:title" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:title"]); ?>" />
 	<meta property="og:image" content="<?php echo $data["europeana:object"]; ?>" />
