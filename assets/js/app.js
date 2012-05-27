@@ -102,6 +102,7 @@ $(function(){
 			$("#dataprovider").html($(this).children("img").data("provider"))
 			$("#dataoriginaluri").html('<a target="_blank" href="'+$(this).children("img").data("originaluri")+'">'+$(this).children("img").data("originaluri")+'</a>')
 			$("#datasubjects").html(decodeURIComponent($(this).children("img").data("subjects")))
+			console.log($(this).children("img").data("subjects"))
 			if($(this).children("img").data("description") != undefined){
 				$("#datadescription").html(decodeURIComponent($(this).children("img").data("description")))
 			}
