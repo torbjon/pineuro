@@ -75,6 +75,9 @@
 						$("#popup_img_title").html("")
 					}
 				});
+				$(this).dequeue();
+			})
+			$("body").queue(function(){
 				$.fancybox(
 					$("#popup"),
 					{
