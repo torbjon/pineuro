@@ -179,3 +179,8 @@ header h1 {
 	max-height: 250px;
   overflow: scroll;
 }
+.fb-like {
+	width: 50px;
+	margin-left: 10px;
+	overflow: hidden;
+}
