@@ -41,7 +41,7 @@ header h1 {
 .start .about a { color: #999; }
 
 /** About page */
-#main .about { font-family: 'Open Sans', sans-serif; width: 960px; margin: 0 auto; }
+#main .about { width: 960px; margin: 0 auto; }
 
 /** Rezult page */
 #header {
