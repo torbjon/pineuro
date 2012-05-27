@@ -13,15 +13,15 @@ var totalpages = 0,
 	current_page = 1;
 function fancing() {
 	$(".imagepopup").fancybox({
-			'width'			: 800,
-			'height'		: 500,
-			'padding'		: 0,
-			'centerOnScroll': true,
-			'transitionIn'	: 'elastic',
-			'transitionOut'	: 'elastic',
-			'easingIn'		: 'easeOutBack',
-			'easingOut'		: 'easeInBack'
-		})
+		'width'			: 800,
+		'height'		: 500,
+		'padding'		: 0,
+		'centerOnScroll': true,
+		'transitionIn'	: 'elastic',
+		'transitionOut'	: 'elastic',
+		'easingIn'		: 'easeOutBack',
+		'easingOut'		: 'easeInBack'
+	})
 }
 function wookmarking(){
 	$('#tiles li').wookmark({
@@ -34,28 +34,27 @@ function wookmarking(){
 }
 function load_images(options){
 	$.getJSON("http://api.europeana.eu/api/opensearch.json?callback=?", {
-			searchTerms: options.searchTerm,
-			wskey: api_key,
-			qf: "TYPE:IMAGE",
-			startPage: options.page
-		}, function(data){
-			totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
-			$("#count").html(data.totalResults)
-			$.each(data.items, function(i){
-				$.getJSON(data.items[i].link+"&callback=?", function(item){
-					newimg = new Image()
-					newimg.src = "http://social.apps.lv/image.php?w=196&zc=2&src="+encodeURIComponent(item['europeana:object'])
-					newimg.onload = function(){
-						//if(this.width == 200){
-							$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-originaluri='"+item['europeana:uri']+"' data-provider='"+item['europeana:provider']+"' data-country='"+item['europeana:country']+"' data-imgsrc='"+item['europeana:object'].replace(/\s/g,"%20")+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
-							if(handler) handler.wookmarkClear();
-							wookmarking();
-						//}
-					}
-				})
+		searchTerms: options.searchTerm,
+		wskey: api_key,
+		qf: "TYPE:IMAGE",
+		startPage: options.page
+	}, function(data){
+		totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
+		$("#count").html(data.totalResults)
+		$.each(data.items, function(i){
+			$.getJSON(data.items[i].link+"&callback=?", function(item){
+				newimg = new Image()
+				newimg.src = "http://social.apps.lv/image.php?w=196&zc=2&src="+encodeURIComponent(item['europeana:object'])
+				newimg.onload = function(){
+					//if(this.width == 200){
+						$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-originaluri='"+item['europeana:uri']+"' data-provider='"+item['europeana:provider']+"' data-country='"+item['europeana:country']+"' data-imgsrc='"+item['europeana:object'].replace(/\s/g,"%20")+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
+						if(handler) handler.wookmarkClear();
+						wookmarking();
+					//}
+				}
 			})
-		}
-	)
+		})
+	})
 	current_page++
 }
 $(function(){

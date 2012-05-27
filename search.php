@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="/assets/fancybox/jquery.fancybox-1.3.4.css" />
 </head>
 <body>
-
 	<div id="header">
 		<a href="/"><img src="/assets/images/logo_small.png" height="30" width="118" alt="" class="logo"></a>
 		<form id="f" action="/search" class="search">
@@ -20,88 +19,26 @@
 		</form>
 		<div id="count"></div>
 	</div>
-
 	<div id="main" class="clearfix">
 		<ul id="tiles"></ul>
 	</div>
-
-	<style>
-		#popup {
-			width: 800px;
-			height: 500px;
-			background-color: #333;
-			z-index: 1000;
-			/*border: 2px solid #000;*/
-			-webkit-border-radius: 4px;
-			-moz-border-radius: 4px;
-			border-radius: 4px;
-		}
-		#popup_img {
-			float: left;
-			/*margin: 15px;*/
-			width: 500px;
-			height: 500px;
-			background: #333 no-repeat center center;
-			-webkit-border-top-left-radius: 4px;
-			-webkit-border-bottom-left-radius: 4px;
-			-moz-border-radius-topleft: 4px;
-			-moz-border-radius-bottomleft: 4px;
-			border-top-left-radius: 4px;
-			border-bottom-left-radius: 4px;
-		}
-		#popup_side {
-			float: left;
-			/*margin: 15px auto;*/
-			padding: 15px;
-			width: 270px;
-			height: 470px;
-			background-color: #efefef;
-			-webkit-border-top-right-radius: 4px;
-			-webkit-border-bottom-right-radius: 4px;
-			-moz-border-radius-topright: 4px;
-			-moz-border-radius-bottomright: 4px;
-			border-top-right-radius: 4px;
-			border-bottom-right-radius: 4px;
-		}
-		#popup_img_title {
-			background-color: rgba(0,0,0,0.7);
-			font-size: 14px;
-			color: #fff;
-			padding: 10px 7px;
-			-webkit-border-top-left-radius: 4px;
-			-moz-border-radius-topleft: 4px;
-			border-top-left-radius: 4px;
-		}
-		#popup_side ul {
-			list-style-type: none;
-			margin: 0; padding: 0;
-		}
-		#popup_side lh {
-			font-weight: bold;
-		}
-		#popup_side li {
-			padding-left: 5px;
-		}
-		.fancybox-bg { display: none; }
-	</style>
 	<div style="display:none;">
 		<div id="popup">
-				<div id="popup_img">
-					<div id="popup_img_title">Saldus vidusskola</div>
-				</div>
-				<div id="popup_side">
-					<ul>
-						<lh>Country:</lh>
-						<li id="datacountry"></li>
-						<lh>Provider:</lh>
-						<li id="dataprovider"></li>
-						<lh>Europeana URI:</lh>
-						<li id="dataoriginaluri"></li>
-					</ul>
-				</div>
+			<div id="popup_img">
+				<div id="popup_img_title">Saldus vidusskola</div>
+			</div>
+			<div id="popup_side">
+				<ul>
+					<lh>Country:</lh>
+					<li id="datacountry"></li>
+					<lh>Provider:</lh>
+					<li id="dataprovider"></li>
+					<lh>Europeana URI:</lh>
+					<li id="dataoriginaluri"></li>
+				</ul>
+			</div>
 		</div>
 	</div>
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="/assets/fancybox/jquery.fancybox-1.3.4.js"></script>
 	<script src="/assets/fancybox/jquery.easing-1.3.pack.js"></script>
@@ -112,6 +49,5 @@
 		var searchTerm = "<?php echo isset($_GET['q'])?$_GET['q']:""; ?>";
 	</script>
 	<script src="/assets/js/app.js"></script>
-
 </body>
 </html>
