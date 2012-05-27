@@ -1,5 +1,6 @@
 /** General page styling **/
 html { background: url(/assets/images/bg.gif); }
+body { font-family: 'Droid Sans', sans-serif; }
 header h1 {
 	margin: 30px 0 3px 0;
 	text-align: center;
@@ -38,7 +39,8 @@ header h1 {
 .start .about { margin-top: 60px; }
 .start .about a { color: #999; }
 
-.modal_about { background: #fff; padding: 20px; }
+/** About page */
+#main .about { font-family: 'Open Sans', sans-serif; width: 960px; margin: 0 auto; }
 
 /** Rezult page */
 #header {
