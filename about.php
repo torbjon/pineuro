@@ -28,7 +28,7 @@
 			<p>It starts with a simple search screen:</p>
 			<ul>
 				<li>Enter search keywords and watch as images from Europeana appear before your eyes in a continuous stream.</li>
-				<li>The item view shows detailed information about the image along with <i>social sharing</i> buttons and a link to this item on Europeana.</li>
+				<li>The item view shows detailed information about the image along with social sharing buttons and a link to this item on Europeana.</li>
 				<li>Share the image with friends using "Pin It" and "Facebook Like" buttons.</li>
 			</ul>
 
