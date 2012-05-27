@@ -165,4 +165,6 @@ header h1 {
 }
 #dataoriginaluri a {
 	text-overflow: ellipsis;
+	overflow: hidden;
+	display: block;
 }
