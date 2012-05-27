@@ -228,7 +228,7 @@
 				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=333&w=470&h=470&zc=2&src='+$(this).children("img").data("imgsrc")+')')
 				if($(this).children("img").data("title") != undefined){
 					$("#popup_img_title").html($(this).children("img").data("title"))
-					$("#datacountry").html($(this).children("img").data("country"))
+					$("#datacountry").html($(this).children("img").data("country").capitalize())
 					$("#dataprovider").html($(this).children("img").data("provider"))
 					$("#dataoriginaluri").html('<a href="'+$(this).children("img").data("originaluri")+'">http://www.europeana.eu/..</a>')
 				} else {
@@ -238,6 +238,28 @@
 				return false
 			})
 		})
+
+		String.prototype.capitalize = function(){
+			str = this;
+			var doneStr = '';
+			var len = str.length;
+			var wordIdx = 0;
+			var char;
+			for (var i = 0;i < len;i++) {
+				char = str.substring(i,i + 1);
+				if (' -/#$&.()'.indexOf(char) > -1) {
+					wordIdx = -1;
+				}
+				if (wordIdx == 0) {
+					char = char.toUpperCase();
+				} else if (wordIdx > 0) {
+					char = char.toLowerCase();
+				}
+				doneStr += char;
+				wordIdx++;
+			}
+			return doneStr;
+		}
 
 		var handler = null;
 
