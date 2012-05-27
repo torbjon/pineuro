@@ -93,7 +93,7 @@ $(function(){
 				'<a href="http://pinterest.com/pin/create/button/?url='+encodeURIComponent(document.location.href)+'&media='+encodeURIComponent($(this).children("img").data("imgsrc"))+'&description='+encodeURIComponent($(this).children("img").data("title"))+'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a><script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"><'+'/script>'+
 				'<div class="fb-like" data-href="'+encodeURIComponent(document.location.href)+'" data-send="false" data-layout="box_count" data-width="50" data-show-faces="false"></div>'
 			);
-			FB.XFBML.parse($("#pinbutton"))
+			FB.XFBML.parse($("#pinbutton").get(0))
 		} else {
 			$("#popup_img_title").html("")
 		}
