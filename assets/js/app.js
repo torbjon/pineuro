@@ -127,7 +127,7 @@ $(function(){
 	$("body").on("click", "#fancybox-close", function(){
 		history.pushState(null, null, "/search?q="+encodeURIComponent(searchTerm))
 	})
-	$(".search_block form").submit(function(){
+	$("form").submit(function(){
 		if($("#q").val().trim() != ""){
 			return true
 		} else {
