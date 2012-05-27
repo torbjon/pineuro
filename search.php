@@ -89,6 +89,15 @@ endif;
 					$("#datacountry").html(item['dc:title'])
 					$("#dataprovider").html(item['europeana:country'].capitalize())
 					$("#dataoriginaluri").html('<a target="_blank" href="'+item['europeana:uri']+'">'+item['europeana:uri']+'</a>')
+					var subjects = []
+					if(typeof(item['dc:subject']) == "object"){
+						$.each(item['dc:subject'], function(i){
+							subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'][i])+"'>"+item['dc:subject'][i]+"</a>")
+						})
+					} else if(typeof(item['dc:subject']) == "string") {
+						subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'])+"'>"+item['dc:subject']+"</a>")
+					}
+					$("#datasubjects").html(subjects.join(", "));
 					if(item['dc:description'] != undefined){
 						$("#datadescription").html(item['dc:description'].toString())
 					}
