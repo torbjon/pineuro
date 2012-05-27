@@ -1,6 +1,5 @@
 <?php
 define("CACHE_PATH", $_SERVER['DOCUMENT_ROOT']."/cache/");
-echo CACHE_PATH;
 function getjson(){
 	$data = "";
 	$params = http_build_query(array_merge($_GET, array("wskey"=>"HTMQFSCKKB")));
@@ -19,7 +18,7 @@ function getjson(){
 		$data = curl_exec($ch);
 		$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		if($httpcode >= 200 && $httpcode < 400):
-			file_put_contents($filename, $data);
+			file_put_contents(CACHE_PATH.$filename, $data);
 		endif;
 	}
 	echo (isset($_GET['callback'])?$_GET['callback']:"").$data.(isset($_GET['callback'])?")":"");
