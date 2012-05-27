@@ -184,3 +184,10 @@ header h1 {
 	margin-left: 10px;
 	overflow: hidden;
 }
+.connect_widget_connect_button {
+	margin-top: 6px !important;
+}
+.connect_widget_number_cloud {
+	height: 21px !important;
+	margin-top: 4px !important;
+}
