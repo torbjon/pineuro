@@ -53,7 +53,7 @@ function load_images(options){
 						$.each(item['dc:subject'], function(i){
 							subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'][i])+"'>"+item['dc:subject'][i]+"</a>")
 						})
-						console.log(subjects)
+						console.log(subjects.join())
 						//if(this.width == 200){
 							$("#tiles").append(
 								"<li><a class='imagepopup' href='#popup'><img width='"+this.width+
