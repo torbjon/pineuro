@@ -21,6 +21,7 @@ header h1 {
 	border-radius: 4px;
 	font-size: 24px;
 	background:  white url(/assets/images/search_small.png) no-repeat 98% 50%;
+  padding-right: 50px;
 }
 .start .search_block .search-button {
 	position: absolute;
@@ -40,7 +41,7 @@ header h1 {
 .start .about a { color: #999; }
 
 /** About page */
-#main .about { font-family: 'Open Sans', sans-serif; width: 960px; margin: 0 auto; }
+#main .about { width: 960px; margin: 0 auto; }
 
 /** Rezult page */
 #header {
@@ -66,6 +67,7 @@ header h1 {
 	border-radius: 4px;
 	width: 200px;
 	background:  white url(/assets/images/search_new.png) no-repeat 100% 50%;
+  padding-right: 30px;
 }
 #header form.search .btn {
 	position: absolute;
@@ -181,7 +183,7 @@ header h1 {
 	padding: 0 !important;
 	margin: 10px 0 5px;
 	_height: expression( this.scrollHeight > 332 ? "333px" : "auto" );
-	max-height: 200px;
+	max-height: 160px;
 	overflow: scroll;
 }
 .fb-like {
