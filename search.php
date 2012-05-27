@@ -86,8 +86,8 @@ endif;
 				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=333&w=470&h=470&zc=2&src='+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20"))+')')
 				if(item['dc:title'] != undefined){
 					$("#popup_img_title").html(item['dc:title'])
-					$("#datacountry").html(item['dc:title'])
-					$("#dataprovider").html(item['europeana:country'].capitalize())
+					$("#datacountry").html(item['europeana:country'].capitalize())
+					$("#dataprovider").html(item['europeana:provider'])
 					$("#dataoriginaluri").html('<a target="_blank" href="'+item['europeana:uri']+'">'+item['europeana:uri']+'</a>')
 					var subjects = []
 					if(typeof(item['dc:subject']) == "object"){
