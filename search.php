@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>europ.in</title>
+	<title><?php echo isset($_GET['q'])? ($_GET['q']." - "):""; ?>Europ.in - explore and share Europeana</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<link rel="stylesheet" href="/assets/css/reset.css" />
 	<link rel="stylesheet" href="/assets/css/style.css" />
@@ -31,28 +31,46 @@
 			height: 500px;
 			background-color: #333;
 			z-index: 1000;
-			border: 2px solid #000;
+			/*border: 2px solid #000;*/
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
 		}
 		#popup_img {
 			float: left;
-			margin: 15px;
+			/*margin: 15px;*/
 			width: 500px;
-			height: 470px;
-			background: #dedede no-repeat center center;
+			height: 500px;
+			background: #333 no-repeat center center;
+			-webkit-border-top-left-radius: 4px;
+			-webkit-border-bottom-left-radius: 4px;
+			-moz-border-radius-topleft: 4px;
+			-moz-border-radius-bottomleft: 4px;
+			border-top-left-radius: 4px;
+			border-bottom-left-radius: 4px;
 		}
 		#popup_side {
 			float: left;
-			margin: 15px auto;
+			/*margin: 15px auto;*/
 			padding: 15px;
-			width: 225px;
-			height: 440px;
+			width: 270px;
+			height: 470px;
 			background-color: #efefef;
+			-webkit-border-top-right-radius: 4px;
+			-webkit-border-bottom-right-radius: 4px;
+			-moz-border-radius-topright: 4px;
+			-moz-border-radius-bottomright: 4px;
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
 		}
 		#popup_img_title {
 			background-color: rgba(0,0,0,0.7);
-			font: 14px Arial;
+			font-size: 14px;
 			color: #fff;
 			padding: 10px 7px;
+			-webkit-border-top-left-radius: 4px;
+			-moz-border-radius-topleft: 4px;
+			border-top-left-radius: 4px;
 		}
 		#popup_side ul {
 			list-style-type: none;
@@ -64,6 +82,7 @@
 		#popup_side li {
 			padding-left: 5px;
 		}
+		.fancybox-bg { display: none; }
 	</style>
 	<div style="display:none;">
 		<div id="popup">
@@ -83,10 +102,12 @@
 		</div>
 	</div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script type="text/javascript" src="/assets/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="/assets/fancybox/jquery.fancybox-1.3.4.js"></script>
+	<script src="/assets/fancybox/jquery.easing-1.3.pack.js"></script>
+	<script src="/assets/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 	<script src="/assets/js/wookmark.js"></script>
-	<script defer src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+	<script src="http://balupton.github.com/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
 	<script>
 		(function(window,undefined){
 			var History = window.History,
@@ -99,8 +120,7 @@
 
 			})
 		})(window);
-	</script>
-	<script>
+	
 		var totalpages = 0,
 			api_key = "HTMQFSCKKB",
 			current_page = 1,
@@ -135,13 +155,34 @@
 		})
 		*/
 
+		function fancing() {
+			$(".imagepopup").fancybox({
+					'width'					: 800,
+					'height'				: 500,
+					'padding'				: 0,
+					'centerOnScroll': true,
+					'transitionIn'	: 'elastic',
+					'transitionOut'	: 'elastic',
+					'easingIn'      : 'easeOutBack',
+					'easingOut'     : 'easeInBack'
+				})
+		}
+
+		function wookmarking(){
+			$('#tiles li').wookmark({
+				autoResize: true, // This will auto-update the layout when the browser window is resized.
+				container: $('#main'), // Optional, used for some extra CSS styling
+				offset: 4 // Optional, the distance between grid items
+				//itemWidth: 210 // Optional, the width of a grid item
+			});
+			fancing();
+		}
+
 		function load_images(options){
 			$.getJSON("http://api.europeana.eu/api/opensearch.json?callback=?", {
 					searchTerms: options.searchTerm,
 					wskey: api_key,
 					qf: "TYPE:IMAGE",
-					qf: "NOT RIGHTS:http://www.europeana.eu/rights/rr-p/",
-					qf: "NOT RIGHTS:http://www.europeana.eu/rights/rr-3/",
 					startPage: options.page
 				}, function(data){
 					totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
@@ -149,18 +190,12 @@
 					$.each(data.items, function(i){
 						$.getJSON(data.items[i].link+"&callback=?", function(item){
 							newimg = new Image()
-							newimg.src = "http://social.apps.lv/image.php?w=200&zc=2&src="+encodeURIComponent(item['europeana:object'])
+							newimg.src = "http://social.apps.lv/image.php?w=196&zc=2&src="+encodeURIComponent(item['europeana:object'])
 							newimg.onload = function(){
 								//if(this.width == 200){
 									$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-originaluri='"+item['europeana:uri']+"' data-provider='"+item['europeana:provider']+"' data-country='"+item['europeana:country']+"' data-imgsrc='"+item['europeana:object']+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
 									if(handler) handler.wookmarkClear();
-									handler = $('#tiles li');
-									handler.wookmark({
-			autoResize: true, // This will auto-update the layout when the browser window is resized.
-			container: $('#main'), // Optional, used for some extra CSS styling
-			offset: 4 // Optional, the distance between grid items
-			//itemWidth: 210 // Optional, the width of a grid item
-		});
+									wookmarking();
 								//}
 							}
 						})
@@ -188,8 +223,9 @@
 					page: current_page
 				})
 			}
+
 			$("#tiles").on("click", ".imagepopup", function(){
-				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=dedede&w=470&h=470&zc=2&src='+$(this).children("img").data("imgsrc")+')')
+				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=333&w=470&h=470&zc=2&src='+$(this).children("img").data("imgsrc")+')')
 				if($(this).children("img").data("title") != undefined){
 					$("#popup_img_title").html($(this).children("img").data("title"))
 					$("#datacountry").html($(this).children("img").data("country"))
@@ -198,27 +234,12 @@
 				} else {
 					$("#popup_img_title").html("")
 				}
-				$(".imagepopup").fancybox({
-					'width': 800,
-					'height': 500,
-					'padding': 0
-				})
+				fancing();
 				return false
 			})
 		})
-	</script>
 
-	<!-- Once the page is loaded, initalize the plug-in. -->
-	<script type="text/javascript">
 		var handler = null;
-
-		// Prepare layout options.
-		var options = {
-			autoResize: true, // This will auto-update the layout when the browser window is resized.
-			container: $('#main'), // Optional, used for some extra CSS styling
-			offset: 4 // Optional, the distance between grid items
-			//itemWidth: 210 // Optional, the width of a grid item
-		};
 
 		/**
 		 * When scrolled all the way to the bottom, add more tiles.
@@ -229,16 +250,15 @@
 			if(closeToBottom) {
 				// Get the first then items from the grid, clone them, and add them to the bottom of the grid.
 				load_images({
-			searchTerm: searchTerm,
-			page: current_page
-		})
+					searchTerm: searchTerm,
+					page: current_page
+				})
 
 				// Clear our previous layout handler.
 				if(handler) handler.wookmarkClear();
 
 				// Create a new layout handler.
-				handler = $('#tiles li');
-				handler.wookmark(options);
+				wookmarking();
 			}
 		};
 
@@ -247,8 +267,7 @@
 			$(document).bind('scroll', onScroll);
 
 			// Call the layout function.
-			handler = $('#tiles li');
-			handler.wookmark(options);
+			wookmarking();
 		});
 	</script>
 

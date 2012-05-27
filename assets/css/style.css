@@ -2,80 +2,108 @@
 html { background: url(/assets/images/bg.gif); }
 
 header h1 {
-  text-align: center;
-  font-size: 24px;
-  font-weight: normal;
   margin: 30px 0 3px 0;
+  text-align: center;
+  font-weight: normal;
+  font-size: 24px;
 }
 
 /** Start page */
-.start { width: 500px; margin: 0 auto; text-align: center; }
-.start .logo { margin: 100px 0 60px; }
-.start .search_block input.search { 
-  border: 1px solid #ccc;
+.start { margin: 0 auto; width: 500px; text-align: center; }
+.start .logo { margin: 80px 0 40px; }
+.start .search_block { position: relative; }
+.start .search_block form { position: absolute; margin-left: 46px; }
+.start .search_block input.search {
   padding: 4px;
-  font-size: 24px;
+  width: 400px; 
+  border: 1px solid #ccc;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  width: 350px;
+  font-size: 24px;
+  background:  white url(/assets/images/search.png) no-repeat 100% 50%;
 }
-.start .search_block .search-button { height: 36px; margin-top: -10px; }
-.start .featured { color: #777; margin: 20px 60px 0 0; }
+.start .search_block .search-button { 
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding: 0;
+  width: 25px;
+  height: 24px;
+  font-size: 10px;
+  overflow: hidden;
+  opacity: 0;
+}
+.start .featured { margin: 54px 0px 0 0; color: #777; }
 .start .featured a { color: #777; }
-.start .about { margin-top: 60px; display: none; }
+.start .about { display: none; margin-top: 60px; }
 .start .about a { color: #777; }
 
 /** Rezult page */
 #header {
-  top: 0;
-  height: 40px;
-  background-color: #3d261a;
   position: fixed;
+  top: 0;
   right: 0;
   left: 0;
   z-index: 1030;
   margin-bottom: 0;
+  height: 40px;
+  background: #3d261a url(/assets/images/header.png);
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
-#header .logo { margin: 5px 0 0 10px; }
-#header form.search { display: inline; margin-left: 20px; }
-#header form.search { display: inline; position: absolute; margin-top: 3px; }
+#header .logo { margin: 5px 20px 0 10px; }
+#header form.search { position: absolute; top: 7px; z-index: 1; left: 160px; }
 #header form.search .search_bar { 
-  border: 1px solid #2b1003; padding: 4px; margin-top: 4px;
+  padding: 4px; 
+  border: 1px solid #2b1003;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+  width: 200px;
+  background:  white url(/assets/images/search.png) no-repeat 100% 50%;
 }
-#header form.search .btn { height: 23px; margin-top: -3px; line-height: 11px; }
+#header form.search .btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding: 0;
+  width: 25px;
+  height: 24px;
+  font-size: 10px;
+  overflow: hidden;
+  opacity: 0;
+}
 #header #count { float: right; margin: 8px 10px 0 0; color: #fff; font-size: 20px; }
 
 
 /** Grid container */
-#main { margin: 50px 0px 30px; position: relative; }
-#tiles { 
-  list-style-type: none;
-  margin: 0;
+#main { position: relative; margin: 50px 0px 30px; }
+#tiles {
   position: relative; /** Needed to ensure items are laid out relative to this container */
+  margin: 0; 
+  list-style-type: none;
 }
 
 /** Grid items */
 #tiles li {
-  width: 200px;
-  background-color: #ffffff;
-  border: 1px solid #dedede;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  display: none; /** Hide items initially to avoid a flicker effect **/
-  cursor: pointer;
+  display: none;
+  margin: 4px;
   padding: 4px;
+  width: 196px;
+  border: 1px solid #dedede;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #fff; /** Hide items initially to avoid a flicker effect **/
+  cursor: pointer;
 }
 
 #tiles li img { display: block; }
-#tiles li p { color: #666; font-size: 12px; margin: 7px 0 0 7px; }
+#tiles li p { margin: 7px 0 0 7px; color: #666; font-size: 12px; }
 #tiles ali:nth-child(3n) { height: 175px; }
 #tiles ali:nth-child(4n-3) { padding-bottom: 30px; }
 #tiles ali:nth-child(5n) { height: 250px; }
