@@ -117,7 +117,7 @@ $(function(){
 			} else {
 				$("#datasubjects").prev("lh").hide()
 			}
-			if($(this).children("img").data("description") != undefined){
+			if($(this).children("img").data("description") != "undefined"){
 				$("#datadescription").html(decodeURIComponent($(this).children("img").data("description")))
 			}
 			$("#pinbutton").html(
