@@ -55,6 +55,8 @@ endif;
 				</div>
 				<ul>
 					<li id="datadescription"></li>
+					<lh>Creator:</lh>
+					<li id="datacreator"></li>
 					<lh>Country:</lh>
 					<li id="datacountry"></li>
 					<lh>Data provider:</lh>
@@ -88,6 +90,12 @@ endif;
 					$("#popup_img_title").html(item['dc:title'])
 					$("#datacountry").html(item['europeana:country'].capitalize())
 					$("#dataprovider").html(item['europeana:provider'])
+					if(item['dc:creator'] != undefined){
+						$("#datacreator").prev("lh").show()
+						$("#datacreator").html(item['dc:creator'])
+					} else {
+						$("#datacreator").prev("lh").hide()
+					}
 					$("#dataoriginaluri").html('<a target="_blank" href="'+item['europeana:uri']+'">view this item at Europeana</a>')
 					var subjects = []
 					if(typeof(item['dc:subject']) == "object"){

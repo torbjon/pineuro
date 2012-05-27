@@ -65,6 +65,7 @@ function load_images(options){
 								"' data-originaluri='"+item['europeana:uri']+
 								"' data-provider='"+item['europeana:provider']+
 								"' data-country='"+item['europeana:country']+
+								"' data-creator='"+item['dc:creator']+
 								"' data-imgsrc='"+item['europeana:object'].replace(/\s/g,"%20")+
 								"' data-title='"+item['dc:title']+
 								"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+
@@ -103,6 +104,12 @@ $(function(){
 			$("#popup_img_title").html($(this).children("img").data("title"))
 			$("#datacountry").html($(this).children("img").data("country").capitalize())
 			$("#dataprovider").html($(this).children("img").data("provider"))
+			if($(this).children("img").data("creator") != undefined){
+				$("#datacreator").prev("lh").show()
+				$("#datacreator").html($(this).children("img").data("creator"))
+			} else {
+				$("#datacreator").prev("lh").hide()
+			}
 			$("#dataoriginaluri").html('<a target="_blank" href="'+$(this).children("img").data("originaluri")+'">view this item at Europeana</a>')
 			if($(this).children("img").data("subjects").length){
 				$("#datasubjects").prev("lh").show()
