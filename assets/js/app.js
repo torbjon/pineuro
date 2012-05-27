@@ -51,7 +51,7 @@ function load_images(options){
 						var subjects = []
 						if(typeof(item['dc:subject']) == "object"){
 							$.each(item['dc:subject'], function(i){
-								subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'][i])+"'>"+item['dc:subject'][i]+"</a>")
+								subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'][i].replace("'","%27"))+"'>"+item['dc:subject'][i]+"</a>")
 							})
 						} else if(typeof(item['dc:subject']) == "string") {
 							subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'])+"'>"+item['dc:subject']+"</a>")
