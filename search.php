@@ -64,7 +64,7 @@
 				if(item['dc:title'] != undefined){
 					$("#popup_img_title").html(item['dc:title'])
 					$("#datacountry").html(item['dc:title'])
-					$("#dataprovider").html(item['europeana:country'])
+					$("#dataprovider").html(item['europeana:country'].capitalize())
 					$("#dataoriginaluri").html('<a target="_blank" href="'+item['europeana:uri']+'">'+item['europeana:uri']+'</a>')
 					if(item['dc:description'] != undefined){
 						$("#datadescription").html(item['dc:description'])
