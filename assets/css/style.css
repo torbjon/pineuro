@@ -91,12 +91,12 @@ header h1 {
 	display: none;
 	margin: 4px;
 	padding: 4px;
-	width: 196px;
-	border: 1px solid #dedede;
+	width: 198px;
+	/*border: 1px solid #dedede;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
-	background-color: #fff; /** Hide items initially to avoid a flicker effect **/
+	background-color: #fff; */ /** Hide items initially to avoid a flicker effect **/
 	cursor: pointer;
 }
 #tiles li img { display: block; }
@@ -170,6 +170,9 @@ header h1 {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	display: block;
+}
+#pinbutton {
+  height: 80px;
 }
 #datadescription {
   text-align: justify;
