@@ -104,7 +104,7 @@ $(function(){
 			$("#popup_img_title").html($(this).children("img").data("title"))
 			$("#datacountry").html($(this).children("img").data("country").capitalize())
 			$("#dataprovider").html($(this).children("img").data("provider"))
-			if($(this).children("img").data("creator") != undefined){
+			if($(this).children("img").data("creator") != "undefined"){
 				$("#datacreator").prev("lh").show()
 				$("#datacreator").html($(this).children("img").data("creator"))
 			} else {
