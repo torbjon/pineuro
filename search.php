@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="/assets/css/style.css" />
 	<link rel="stylesheet" href="/assets/css/bootstrap.css" />
 	<link rel="stylesheet" href="/assets/fancybox/jquery.fancybox-1.3.4.css" />
-	<!--
 <?php
 if(isset($_GET['itemid'])):
 	$ch = curl_init("http://www.europeana.eu/portal/record/".$_GET['itemid'].".json?wskey=HTMQFSCKKB");
@@ -23,17 +22,14 @@ if(isset($_GET['itemid'])):
 	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	if($httpcode >= 200 && $httpcode < 400):
 		$data = json_decode($data);
-		var_dump($data);
 ?>
-	<meta property="og:title" content="Stuffed Cookies" />
-	<meta property="og:image" content="http://fbwerks.com:8000/zhen/cookie.jpg" />
-	<meta property="og:description" content="The Turducken of Cookies" />
-	<meta property="og:url" content="http://fbwerks.com:8000/zhen/cookie.html">
-<?php
+	<meta property="og:title" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:title"]); ?>" />
+	<meta property="og:image" content="<?php echo $data["europeana:object"]; ?>" />
+	<meta property="og:description" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:description"]); ?>" />
+	<meta property="og:url" content="http://europ.in<?php echo $_SERVER['REQUEST_URI']; ?>" />
 	endif;
 endif;
 ?>
-	-->
 </head>
 <body>
 	<div id="header">
