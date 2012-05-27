@@ -17,7 +17,7 @@ a:hover { text-decoration: underline; }
 .start { margin: 0 auto; width: 500px; text-align: center; }
 .start .logo { margin: 80px 0 40px; }
 .start .search_block { position: relative; }
-.start .search_block form { position: absolute; margin-left: 46px; }
+.start .search_block form { position: absolute; margin-left: 25px; }
 .start .search_block input.search {
 	padding: 4px;
 	width: 400px;
