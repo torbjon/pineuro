@@ -19,7 +19,7 @@ header h1 {
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	font-size: 24px;
-	background:  white url(/assets/images/search.png) no-repeat 100% 50%;
+	background:  white url(/assets/images/search_small.png) no-repeat 98% 50%;
 }
 .start .search_block .search-button {
 	position: absolute;
@@ -60,7 +60,7 @@ header h1 {
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	width: 200px;
-	background:  white url(/assets/images/search.png) no-repeat 100% 50%;
+	background:  white url(/assets/images/search_new.png) no-repeat 100% 50%;
 }
 #header form.search .btn {
 	position: absolute;
