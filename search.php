@@ -225,7 +225,7 @@
 			}
 
 			$("#tiles").on("click", ".imagepopup", function(){
-				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=333&w=470&h=470&zc=2&src='+$(this).children("img").data("imgsrc")+')')
+				$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=333&w=470&h=470&zc=2&src='+encodeURIComponent($(this).children("img").data("imgsrc"))+')')
 				if($(this).children("img").data("title") != undefined){
 					$("#popup_img_title").html($(this).children("img").data("title"))
 					$("#datacountry").html($(this).children("img").data("country").capitalize())
