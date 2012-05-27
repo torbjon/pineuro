@@ -57,7 +57,7 @@ endif;
 					<li id="datadescription"></li>
 					<lh>Country:</lh>
 					<li id="datacountry"></li>
-					<lh>Provider:</lh>
+					<lh>Data provider:</lh>
 					<li id="dataprovider"></li>
 					<lh>Europeana:</lh>
 					<li id="dataoriginaluri"></li>
