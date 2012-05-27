@@ -26,7 +26,7 @@
 	?>
 	<meta property="og:title" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:title"]); ?>" />
 	<meta property="og:image" content="<?php echo $data["europeana:object"]; ?>" />
-	<meta property="og:description" content="<?php echo str_replace(array("\n","\r"), "", (string)$data["dc:description"]); ?>" />
+	<meta property="og:description" content="<?php echo str_replace(array("\n","\r"), "", is_array($data["dc:description"])?implode($data["dc:description"],""):$data["dc:description"]); ?>" />
 <?php
 	endif;
 endif;
