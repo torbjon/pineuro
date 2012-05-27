@@ -127,6 +127,13 @@ $(function(){
 	$("body").on("click", "#fancybox-close", function(){
 		history.pushState(null, null, "/search?q="+encodeURIComponent(searchTerm))
 	})
+	$(".search_block form").submit(function(){
+		if($("#q").val().trim()){
+			return true
+		} else {
+			return false
+		}
+	})
 })
 String.prototype.capitalize = function(){
 	str = this;
