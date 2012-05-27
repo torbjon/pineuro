@@ -50,7 +50,7 @@ endif;
 			</div>
 			<div id="popup_side">
 				<div id="pinbutton">
-					<a href="" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+
 				</div>
 				<ul>
 					<li id="datadescription"></li>
@@ -89,7 +89,7 @@ endif;
 					if(item['dc:description'] != undefined){
 						$("#datadescription").html(item['dc:description'])
 					}
-					$("#pinbutton").children("a").attr("href", "http://pinterest.com/pin/create/button/?url="+encodeURIComponent(document.location.href)+"&media="+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20"))+"&description="+encodeURIComponent(item['dc:title']))
+					$("#pinbutton").html('<a href="http://pinterest.com/pin/create/button/?url='+encodeURIComponent(document.location.href)+'&media='+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20"))+'&description='+encodeURIComponent(item['dc:title'])+'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>');
 				} else {
 					$("#popup_img_title").html("")
 				}
