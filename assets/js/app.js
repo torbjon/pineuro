@@ -49,8 +49,23 @@ function load_images(options){
 					newimg = new Image()
 					newimg.src = "http://social.apps.lv/image.php?w=196&zc=2&src="+encodeURIComponent(item['europeana:object'])
 					newimg.onload = function(){
+							var subjects = []
+							$.each(item['dc:subject'], function(i){
+								subjects.push("<a href='/?q="+encodeURIComponent(item['dc:subject'][i])+"'>"+item['dc:subject'][i]+"</a>")
+							})
 						//if(this.width == 200){
-							$("#tiles").append("<li><a class='imagepopup' href='#popup'><img width='"+this.width+"' height='"+this.height+"' data-description='"+encodeURIComponent(item['dc:description'])+"' data-originaluri='"+item['europeana:uri']+"' data-provider='"+item['europeana:provider']+"' data-country='"+item['europeana:country']+"' data-imgsrc='"+item['europeana:object'].replace(/\s/g,"%20")+"' data-title='"+item['dc:title']+"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+"' /></a></li>")
+							$("#tiles").append(
+								"<li><a class='imagepopup' href='#popup'><img width='"+this.width+
+								"' height='"+this.height+
+								"' data-subjects='"+encodeURIComponent(subjects.join())+
+								"' data-description='"+encodeURIComponent(item['dc:description'])+
+								"' data-originaluri='"+item['europeana:uri']+
+								"' data-provider='"+item['europeana:provider']+
+								"' data-country='"+item['europeana:country']+
+								"' data-imgsrc='"+item['europeana:object'].replace(/\s/g,"%20")+
+								"' data-title='"+item['dc:title']+
+								"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+
+								"' /></a></li>")
 							if(handler) handler.wookmarkClear();
 							wookmarking();
 						//}
@@ -86,6 +101,8 @@ $(function(){
 			$("#datacountry").html($(this).children("img").data("country").capitalize())
 			$("#dataprovider").html($(this).children("img").data("provider"))
 			$("#dataoriginaluri").html('<a target="_blank" href="'+$(this).children("img").data("originaluri")+'">'+$(this).children("img").data("originaluri")+'</a>')
+			$("#datasubjects").html(decodeURIComponent($(this).children("img").data("subjects")))
+			console.log($(this).children("img").data("subjects"))
 			if($(this).children("img").data("description") != undefined){
 				$("#datadescription").html(decodeURIComponent($(this).children("img").data("description")))
 			}
@@ -98,6 +115,9 @@ $(function(){
 		}
 		fancing();
 		return false
+	})
+	$("body").on("click", "#fancybox-close", function(){
+		history.pushState(null, null, "/?q="+encodeURIComponent(searchTerm))
 	})
 })
 String.prototype.capitalize = function(){
