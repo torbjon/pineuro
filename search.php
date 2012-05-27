@@ -25,7 +25,7 @@ if(isset($_GET['itemid'])):
 ?>
 	<meta property="og:title" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:title"]); ?>" />
 	<meta property="og:image" content="<?php echo $data["europeana:object"]; ?>" />
-	<meta property="og:description" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:description"]); ?>" />
+	<meta property="og:description" content="<?php echo str_replace(array("\n","\r"), "", (string)$data["dc:description"]); ?>" />
 <?php
 	endif;
 endif;
@@ -95,10 +95,10 @@ endif;
 					$("#dataprovider").html(item['europeana:country'].capitalize())
 					$("#dataoriginaluri").html('<a target="_blank" href="'+item['europeana:uri']+'">'+item['europeana:uri']+'</a>')
 					if(item['dc:description'] != undefined){
-						$("#datadescription").html(item['dc:description'])
+						$("#datadescription").html(item['dc:description'].toString())
 					}
 					$("#pinbutton").html(
-						'<a href="http://pinterest.com/pin/create/button/?url='+encodeURIComponent(document.location.href)+'&media='+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20"))+'&description='+encodeURIComponent(item['dc:title'])+'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a><script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"><'+'/script>'+
+						'<a href="http://pinterest.com/pin/create/button/?url='+encodeURIComponent(document.location.href)+'&media='+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20"))+'&description='+encodeURIComponent(item['dc:title'].toString())+'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a><script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"><'+'/script>'+
 						'<div class="fb-like" data-href="'+encodeURIComponent(document.location.href)+'" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false"></div>'
 					);
 					FB.XFBML.parse()
