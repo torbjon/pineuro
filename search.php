@@ -88,6 +88,11 @@ endif;
 					$("#datacountry").html(item['dc:title'])
 					$("#dataprovider").html(item['europeana:country'].capitalize())
 					$("#dataoriginaluri").html('<a target="_blank" href="'+item['europeana:uri']+'">'+item['europeana:uri']+'</a>')
+					var subjects = []
+					$.each(item['dc:subject'], function(i){
+						subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'][i])+"'>"+item['dc:subject'][i]+"</a>")
+					})
+					$("#datasubjects").html(subjects.join(", "));
 					if(item['dc:description'] != undefined){
 						$("#datadescription").html(item['dc:description'].toString())
 					}
