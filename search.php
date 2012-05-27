@@ -26,7 +26,6 @@ if(isset($_GET['itemid'])):
 	<meta property="og:title" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:title"]); ?>" />
 	<meta property="og:image" content="<?php echo $data["europeana:object"]; ?>" />
 	<meta property="og:description" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:description"]); ?>" />
-	<meta property="og:url" content="http://europ.in<?php echo $_SERVER['REQUEST_URI']; ?>" />
 <?php
 	endif;
 endif;
@@ -51,7 +50,7 @@ endif;
 			</div>
 			<div id="popup_side">
 				<div id="pinbutton">
-					<a href="" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+
 				</div>
 				<ul>
 					<li id="datadescription"></li>
@@ -90,7 +89,10 @@ endif;
 					if(item['dc:description'] != undefined){
 						$("#datadescription").html(item['dc:description'])
 					}
-					$("#pinbutton").children("a").attr("href", "http://pinterest.com/pin/create/button/?url="+encodeURIComponent(document.location.href)+"&media="+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20"))+"&description="+encodeURIComponent(item['dc:title']))
+					$("#pinbutton").html(
+						'<a href="http://pinterest.com/pin/create/button/?url='+encodeURIComponent(document.location.href)+'&media='+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20"))+'&description='+encodeURIComponent(item['dc:title'])+'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a><script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"><'+'/script>'+
+						'<div class="fb-like" data-href="'+encodeURIComponent(document.location.href)+'" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false"></div><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1&appId=130236337100576"></'+'script>'
+					);
 				} else {
 					$("#popup_img_title").html("")
 				}
@@ -113,6 +115,5 @@ endif;
 <?
 	endif;
 ?>
-	<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>
