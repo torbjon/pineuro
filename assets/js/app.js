@@ -10,7 +10,8 @@
 })(window);
 var totalpages = 0,
 	api_key = "HTMQFSCKKB",
-	current_page = 1;
+	current_page = 1,
+	doscrollevent = true;
 function fancing() {
 	$(".imagepopup").fancybox({
 		'width'			: 800,
@@ -33,6 +34,7 @@ function wookmarking(){
 	fancing();
 }
 function load_images(options){
+	doscrollevent = false
 	$.getJSON("http://api.europeana.eu/api/opensearch.json?callback=?", {
 		searchTerms: options.searchTerm,
 		wskey: api_key,
@@ -56,6 +58,7 @@ function load_images(options){
 				}
 			})
 		})
+		doscrollevent = true
 	})
 	current_page++
 }
@@ -117,18 +120,20 @@ String.prototype.capitalize = function(){
 }
 var handler = null;
 function onScroll(event) {
-	// Check if we're within 100 pixels of the bottom edge of the broser window.
-	var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100);
-	if(closeToBottom) {
-		// Get the first then items from the grid, clone them, and add them to the bottom of the grid.
-		load_images({
-			searchTerm: searchTerm,
-			page: current_page
-		})
-		// Clear our previous layout handler.
-		if(handler) handler.wookmarkClear();
-		// Create a new layout handler.
-		wookmarking();
+	if(doscrollevent){
+		// Check if we're within 100 pixels of the bottom edge of the broser window.
+		var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100);
+		if(closeToBottom) {
+			// Get the first then items from the grid, clone them, and add them to the bottom of the grid.
+			load_images({
+				searchTerm: searchTerm,
+				page: current_page
+			})
+			// Clear our previous layout handler.
+			if(handler) handler.wookmarkClear();
+			// Create a new layout handler.
+			wookmarking();
+		}
 	}
 };
 $(document).ready(new function() {
