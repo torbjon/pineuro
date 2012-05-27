@@ -53,12 +53,11 @@ function load_images(options){
 						$.each(item['dc:subject'], function(i){
 							subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'][i])+"'>"+item['dc:subject'][i]+"</a>")
 						})
-						console.log(encodeURIComponent(subjects.join()))
 						//if(this.width == 200){
 							$("#tiles").append(
 								"<li><a class='imagepopup' href='#popup'><img width='"+this.width+
 								"' height='"+this.height+
-								"' data-subjects=\""+encodeURIComponent(subjects.join())+
+								"' data-subjects=\""+encodeURIComponent(subjects.join(", "))+
 								"\" data-description='"+encodeURIComponent(item['dc:description'])+
 								"' data-originaluri='"+item['europeana:uri']+
 								"' data-provider='"+item['europeana:provider']+
