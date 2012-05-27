@@ -230,7 +230,7 @@
 					$("#popup_img_title").html($(this).children("img").data("title"))
 					$("#datacountry").html($(this).children("img").data("country"))
 					$("#dataprovider").html($(this).children("img").data("provider"))
-					$("#dataoriginaluri").html($(this).children("img").data("originaluri"))
+					$("#dataoriginaluri").html('<a href="'+$(this).children("img").data("originaluri")+'">http://www.europeana.eu/..</a>')
 				} else {
 					$("#popup_img_title").html("")
 				}
