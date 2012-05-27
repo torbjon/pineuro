@@ -41,7 +41,7 @@ a:hover { text-decoration: underline; }
 	overflow: hidden;
 	opacity: 0;
 }
-.start .featured { margin: 54px 0px 0 0; color: #777; }
+.start .featured { margin: 54px 0px 0 0; color: #777; word-spacing: 5px; }
 .start .featured a { color: #777; }
 .start .about { margin-top: 30px; }
 .start .about a { color: #999; }
