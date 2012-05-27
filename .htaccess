@@ -1,3 +1,4 @@
 RewriteEngine On
+RewriteRule ^about$  about.php  [NC,L,QSA]
 RewriteRule ^search$	search.php	[NC,L,QSA]
 RewriteRule ^item/([0-9]+)/([ABCDEF0-9]{40})	/search.php?itemid=$1/$2 [NC,L,QSA]
