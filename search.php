@@ -59,7 +59,7 @@ endif;
 					<li id="datacountry"></li>
 					<lh>Provider:</lh>
 					<li id="dataprovider"></li>
-					<lh>Europeana URI:</lh>
+					<lh>Europeana:</lh>
 					<li id="dataoriginaluri"></li>
 					<lh>Subjects:</lh>
 					<li id="datasubjects"></li>
@@ -88,7 +88,7 @@ endif;
 					$("#popup_img_title").html(item['dc:title'])
 					$("#datacountry").html(item['europeana:country'].capitalize())
 					$("#dataprovider").html(item['europeana:provider'])
-					$("#dataoriginaluri").html('<a target="_blank" href="'+item['europeana:uri']+'">'+item['europeana:uri']+'</a>')
+					$("#dataoriginaluri").html('<a target="_blank" href="'+item['europeana:uri']+'">view this item at Europeana</a>')
 					var subjects = []
 					if(typeof(item['dc:subject']) == "object"){
 						$.each(item['dc:subject'], function(i){

@@ -103,7 +103,7 @@ $(function(){
 			$("#popup_img_title").html($(this).children("img").data("title"))
 			$("#datacountry").html($(this).children("img").data("country").capitalize())
 			$("#dataprovider").html($(this).children("img").data("provider"))
-			$("#dataoriginaluri").html('<a target="_blank" href="'+$(this).children("img").data("originaluri")+'">'+$(this).children("img").data("originaluri")+'</a>')
+			$("#dataoriginaluri").html('<a target="_blank" href="'+$(this).children("img").data("originaluri")+'">view this item at Europeana</a>')
 			if($(this).children("img").data("subjects").length){
 				$("#datasubjects").prev("lh").show()
 				$("#datasubjects").html(decodeURIComponent($(this).children("img").data("subjects")))
