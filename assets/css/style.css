@@ -169,6 +169,8 @@ header h1 {
 	display: block;
 }
 #datadescription {
+	padding: 0;
+	font-size: 14px;
 	margin-bottom: 5px;
 	overflow: hidden;
 	text-overflow: ellipsis;
