@@ -172,5 +172,5 @@ header h1 {
 	margin-bottom: 5px;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	height: 250px;
+	max-height: 250px;
 }
