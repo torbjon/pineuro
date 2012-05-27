@@ -80,7 +80,9 @@ $(function(){
 			$("#datacountry").html($(this).children("img").data("country").capitalize())
 			$("#dataprovider").html($(this).children("img").data("provider"))
 			$("#dataoriginaluri").html('<a href="'+$(this).children("img").data("originaluri")+'">http://www.europeana.eu/..</a>')
-			$("#datadescription").html(decodeURIComponent($(this).children("img").data("description")))
+			if($(this).children("img").data("description") != undefined){
+				$("#datadescription").html(decodeURIComponent($(this).children("img").data("description")))
+			}
 		} else {
 			$("#popup_img_title").html("")
 		}
