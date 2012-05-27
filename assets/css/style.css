@@ -43,7 +43,7 @@ a:hover { text-decoration: underline; }
 }
 .start .featured { margin: 54px 0px 0 0; color: #777; }
 .start .featured a { color: #777; }
-.start .about { margin-top: 60px; }
+.start .about { margin-top: 30px; }
 .start .about a { color: #999; }
 
 /** About page */
