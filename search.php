@@ -91,7 +91,7 @@ endif;
 					}
 					$("#pinbutton").html(
 						'<a href="http://pinterest.com/pin/create/button/?url='+encodeURIComponent(document.location.href)+'&media='+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20"))+'&description='+encodeURIComponent(item['dc:title'])+'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a><script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"><'+'/script>'+
-						'<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1&appId=130236337100576"></'+'script>'
+						'<div class="fb-like" data-href="'+encodeURIComponent(document.location.href)+'" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false"></div><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1&appId=130236337100576"></'+'script>'
 					);
 				} else {
 					$("#popup_img_title").html("")
