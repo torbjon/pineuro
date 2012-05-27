@@ -3,7 +3,7 @@ define("CACHE_PATH", $_SERVER['DOCUMENT_ROOT']."/cache/");
 function getjson(){
 	$data = "";
 	$filename = md5($_GET['uri']).".json";
-	if(file_exists(CACHE_PATH.$filename."dadas")){
+	if(file_exists(CACHE_PATH.$filename)){
 		$data = file_get_contents(CACHE_PATH.$filename);
 	} else {
 		$ch = curl_init();
