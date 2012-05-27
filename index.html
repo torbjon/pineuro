@@ -53,7 +53,7 @@
 				var item = examplelist.getItem()
 				examples.push('<a href="/search?q='+encodeURIComponent(item)+'">'+item+'</a>')
 			}
-			console.log(examples)
+			$(".featured").append(examples.join(", "))
 		</script>
 		<div class="featured">
 			Examples:
