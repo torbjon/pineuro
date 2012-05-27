@@ -128,7 +128,7 @@ $(function(){
 		history.pushState(null, null, "/search?q="+encodeURIComponent(searchTerm))
 	})
 	$(".search_block form").submit(function(){
-		if($("#q").val().trim()){
+		if($("#q").val().trim() != ""){
 			return true
 		} else {
 			return false
