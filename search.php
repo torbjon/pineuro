@@ -27,6 +27,7 @@ if(isset($_GET['itemid'])):
 	<meta property="og:image" content="<?php echo $data["europeana:object"]; ?>" />
 	<meta property="og:description" content="<?php echo str_replace(array("\n","\r"), "", $data["dc:description"]); ?>" />
 	<meta property="og:url" content="http://europ.in<?php echo $_SERVER['REQUEST_URI']; ?>" />
+<?php
 	endif;
 endif;
 ?>
