@@ -34,9 +34,9 @@
 
       <p>Europ.in was developed as a part of the #Hack4Europe Riga hackaton by:</p>
       <ul>
-        <li>Eriks</li>
-        <li>Maksim</li>
-        <li>Uldis</li>
+        <li><a href="https://www.facebook.com/eriks.remess" target="_blank">Ēriks Remess</a></li>
+        <li><a href="https://www.facebook.com/maksim.berjoza" target="_blank">Maksim Berjoza</a></li>
+        <li><a href="https://www.facebook.com/uldis.bojars" target="_blank">Uldis Bojars</a></li>
       </ul>
 
       <h2>Technical info</h2>
