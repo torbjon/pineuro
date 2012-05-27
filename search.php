@@ -74,7 +74,7 @@
 					} else {
 						$("#popup_img_title").html("")
 					}
-				})
+				});
 				$.fancybox(
 					$("#popup"),
 					{
@@ -87,8 +87,8 @@
 						'easingIn'		: 'easeOutBack',
 						'easingOut'		: 'easeInBack'
 					}
-				)
-				$(this).dequeue()
+				);
+				$(this).dequeue();
 			)
 		})
 	</script>
