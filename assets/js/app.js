@@ -35,9 +35,8 @@ function wookmarking(){
 }
 function load_images(options){
 	doscrollevent = false
-	$.getJSON("http://api.europeana.eu/api/opensearch.json?callback=?", {
+	$.getJSON("/request.php?callback=?", {
 		searchTerms: options.searchTerm,
-		wskey: api_key,
 		qf: "TYPE:IMAGE",
 		startPage: options.page
 	}, function(data){
