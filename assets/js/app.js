@@ -95,13 +95,13 @@ $(function(){
 	}
 	var initialloads = 0;
 	$('#main').ajaxComplete(function() {
-		console.log(initialloads++)
-/*
-		console.log("viens", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
-		if(objectsTotal > 0 && $("#main").height() < $(window).height() && objectsLoaded < objectsTotal){
-			console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
+		initialloads++
+		if(initialloads == 12){
+			console.log("viens", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
+			if(objectsTotal > 0 && $("#main").height() < $(window).height() && objectsLoaded < objectsTotal){
+				console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
+			}
 		}
-*/
 	})
 	$("#tiles").on("click", ".imagepopup", function(){
 		history.pushState(null, null, "/item/"+$(this).children("img").data("originaluri").replace("http://www.europeana.eu/resolve/record/","")+"?q="+encodeURIComponent(searchTerm))
