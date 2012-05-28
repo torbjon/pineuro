@@ -165,7 +165,7 @@ var handler = null;
 function onScroll(event) {
 	if(doscrollevent){
 		// Check if we're within 100 pixels of the bottom edge of the broser window.
-		var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100);
+		var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 1);
 		if(closeToBottom) {
 			// Get the first then items from the grid, clone them, and add them to the bottom of the grid.
 			load_images()
