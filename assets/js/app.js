@@ -9,7 +9,6 @@
 	})
 })(window);
 var totalpages = 0,
-	api_key = "HTMQFSCKKB",
 	current_page = 1,
 	doscrollevent = true,
 	imagesLoaded = 0,
