@@ -80,7 +80,7 @@ function load_images(){
 							if(handler) handler.wookmarkClear();
 							wookmarking();
 							$("img").error(function(){
-								console.log($(this).attr("src"), "removed")
+								console.log($(this))
 								$(this).remove()
 							})
 						//}
