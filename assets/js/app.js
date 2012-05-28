@@ -69,12 +69,12 @@ function load_images(){
 								"' height='"+this.height+
 								"' data-subjects=\""+encodeURIComponent(subjects.join(", "))+
 								"\" data-description='"+encodeURIComponent(item['dc:description'])+
-								"' data-originaluri='"+(('europeana:uri' in item)?item['europeana:uri'].replace("'","%27"):"")+
-								"' data-provider='"+(('europeana:provider' in item)?item['europeana:provider'].replace("'","%27"):"")+
-								"' data-country='"+(('europeana:country' in item)?item['europeana:country'].replace("'","%27"):"")+
-								"' data-creator='"+(('dc:creator' in item)?item['dc:creator'].replace("'","%27"):"")+
+								"' data-originaluri='"+escape(item['europeana:uri'])+
+								"' data-provider='"+escape(item['europeana:provider'])+
+								"' data-country='"+escape(item['europeana:country'])+
+								"' data-creator='"+escape(item['dc:creator'])+
 								"' data-imgsrc='"+item['europeana:object'].replace(/\s/g,"%20").replace("'","%27")+
-								"' data-title='"+item['dc:title'].replace("'","%27")+
+								"' data-title='"+escape(item['dc:title'].replace("'","%27")+
 								"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20").replace("'","%27"))+
 								"' /></a></li>")
 							if(handler) handler.wookmarkClear();
