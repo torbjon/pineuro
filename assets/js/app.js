@@ -88,9 +88,8 @@ function load_images(){
 	})
 	current_page++
 	if(objectsTotal > 0 && $("#main").height() < $(window).height() && objectsLoaded < objectsTotal){
-		load_images()
+		console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 	}
-//	console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 }
 $(function(){
 	if(searchTerm != ""){
