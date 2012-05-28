@@ -94,6 +94,8 @@ $(function(){
 		load_images()
 		if(($("#main").height() < $(window).height()) && (objectsTotal - objectsLoaded > 0)){
 			load_images()
+		} else {
+			console.log($("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 		}
 	}
 	$("#tiles").on("click", ".imagepopup", function(){
