@@ -86,11 +86,11 @@ function load_images(){
 		})
 		doscrollevent = true
 		console.log("viens", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
+		if(objectsTotal > 0 && $("#main").height() < $(window).height() && objectsLoaded < objectsTotal){
+			console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
+		}
 	})
 	current_page++
-	if(objectsTotal > 0 && $("#main").height() < $(window).height() && objectsLoaded < objectsTotal){
-		console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
-	}
 }
 $(function(){
 	if(searchTerm != ""){
