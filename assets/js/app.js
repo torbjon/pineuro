@@ -62,7 +62,7 @@ function load_images(){
 						} else if(typeof(item['dc:subject']) == "string") {
 							subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'].replace("'","%27"))+"'>"+item['dc:subject']+"</a>")
 						}
-						if(this.width == 196){
+						//if(this.width == 196){
 							imagesLoaded++
 							$("#tiles").append(
 								"<li><a class='imagepopup' href='#popup'><img width='"+this.width+
@@ -79,7 +79,7 @@ function load_images(){
 								"' /></a></li>")
 							if(handler) handler.wookmarkClear();
 							wookmarking();
-						}
+						//}
 					}
 				}
 			})
