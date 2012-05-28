@@ -31,8 +31,7 @@ function wookmarking(){
 	$('#tiles li').wookmark({
 		autoResize: true,
 		container: $('#main'),
-		offset: 4,
-		itemWidth: $(this).width()
+		offset: 4 //,
 		//itemWidth: 210
 	});
 	fancing();
