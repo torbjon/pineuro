@@ -116,11 +116,11 @@ $(function(){
 			$("#dataprovider").html(unescape($(this).children("img").data("provider")))
 			if($(this).children("img").data("creator") != "undefined"){
 				$("#datacreator").prev("lh").show()
-				$("#datacreator").html($(this).children("img").data("creator"))
+				$("#datacreator").html(unescape($(this).children("img").data("creator")))
 			} else {
 				$("#datacreator").prev("lh").hide()
 			}
-			$("#dataoriginaluri").html('<a target="_blank" href="'+$(this).children("img").data("originaluri")+'">view this item at Europeana</a>')
+			$("#dataoriginaluri").html('<a target="_blank" href="'+unescape($(this).children("img").data("originaluri"))+'">view this item at Europeana</a>')
 			if($(this).children("img").data("subjects").length){
 				$("#datasubjects").prev("lh").show()
 				$("#datasubjects").html(decodeURIComponent($(this).children("img").data("subjects")))
