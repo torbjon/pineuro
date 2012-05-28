@@ -79,6 +79,9 @@ function load_images(){
 								"' /></a></li>")
 							if(handler) handler.wookmarkClear();
 							wookmarking();
+							$("img").error(function(){
+								$(this).remove()
+							})
 						//}
 					}
 				}
