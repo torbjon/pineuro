@@ -97,10 +97,10 @@ $(function(){
 	$('#main').ajaxComplete(function() {
 		initialloads++
 		if(initialloads == 12){
-			console.log("viens", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 			if(objectsTotal > 0 && $("#main").height() < $(window).height() && objectsLoaded < objectsTotal){
-				console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
+				load_images()
 			}
+			initialloads = 0
 		}
 	})
 	$("#tiles").on("click", ".imagepopup", function(){
