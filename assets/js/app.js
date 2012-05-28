@@ -85,20 +85,17 @@ function load_images(){
 			})
 		})
 		doscrollevent = true
-		console.log("viens", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 	})
 	current_page++
-	console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
+	if(objectsTotal > 0 && $("#main").height() < $(window).height() && objectsLoaded < objectsTotal){
+		load_images()
+	}
+//	console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 }
 $(function(){
 	if(searchTerm != ""){
 		$("#q").val(searchTerm)
 		load_images()
-		if(($("#main").height() < $(window).height()) && (objectsTotal - objectsLoaded > 0)){
-			load_images()
-		} else {
-			console.log("trīs", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
-		}
 	}
 	$("#tiles").on("click", ".imagepopup", function(){
 		history.pushState(null, null, "/item/"+$(this).children("img").data("originaluri").replace("http://www.europeana.eu/resolve/record/","")+"?q="+encodeURIComponent(searchTerm))
