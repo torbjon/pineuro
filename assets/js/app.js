@@ -11,7 +11,11 @@
 var totalpages = 0,
 	api_key = "HTMQFSCKKB",
 	current_page = 1,
-	doscrollevent = true;
+	doscrollevent = true,
+	imagesLoaded = 0,
+	objectsLoaded = 0,
+	imagesToLoad = 0,
+	objectsTotal = 0;
 function fancing() {
 	$(".imagepopup").fancybox({
 		'width'			: 800,
@@ -33,21 +37,24 @@ function wookmarking(){
 	});
 	fancing();
 }
-function load_images(options){
+function load_images(){
 	doscrollevent = false
 	$.getJSON("/request.php?callback=?", {
-		searchTerms: options.searchTerm,
+		searchTerms: searchTerm,
 		qf: "TYPE:IMAGE",
-		startPage: options.page
+		startPage: current_page
 	}, function(data){
+		objectsTotal = data.totalResults
 		totalpages = Math.ceil(data.totalResults / data.itemsPerPage) - 1
 		$("#count").html(data.totalResults)
 		$.each(data.items, function(i){
 			$.getJSON("/request_object.php?uri="+encodeURIComponent(data.items[i].link), function(item){
+				objectsLoaded++
 				if(item['europeana:object'] != undefined){
 					newimg = new Image()
 					newimg.src = "http://social.apps.lv/image.php?w=196&zc=2&src="+encodeURIComponent(item['europeana:object'])
 					newimg.onload = function(){
+						imagesLoaded++
 						var subjects = []
 						if(typeof(item['dc:subject']) == "object"){
 							$.each(item['dc:subject'], function(i){
@@ -84,18 +91,13 @@ function load_images(options){
 $(function(){
 	if(searchTerm != ""){
 		$("#q").val(searchTerm)
-		load_images({
-			searchTerm: searchTerm,
-			page: current_page
-		})
-		load_images({
-			searchTerm: searchTerm,
-			page: current_page
-		})
-		load_images({
-			searchTerm: searchTerm,
-			page: current_page
-		})
+		while($("#main").height() < $(window).height()){
+			if((objectsTotal - objectsLoaded) > 0){
+				load_images()
+			} else {
+				break
+			}
+		}
 	}
 	$("#tiles").on("click", ".imagepopup", function(){
 		history.pushState(null, null, "/item/"+$(this).children("img").data("originaluri").replace("http://www.europeana.eu/resolve/record/","")+"?q="+encodeURIComponent(searchTerm))
@@ -162,10 +164,7 @@ function onScroll(event) {
 		var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 100);
 		if(closeToBottom) {
 			// Get the first then items from the grid, clone them, and add them to the bottom of the grid.
-			load_images({
-				searchTerm: searchTerm,
-				page: current_page
-			})
+			load_images()
 			// Clear our previous layout handler.
 			if(handler) handler.wookmarkClear();
 			// Create a new layout handler.
