@@ -85,8 +85,10 @@ function load_images(){
 			})
 		})
 		doscrollevent = true
+		console.log("viens", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 	})
 	current_page++
+	console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 }
 $(function(){
 	if(searchTerm != ""){
@@ -95,7 +97,7 @@ $(function(){
 		if(($("#main").height() < $(window).height()) && (objectsTotal - objectsLoaded > 0)){
 			load_images()
 		} else {
-			console.log($("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
+			console.log("trīs", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 		}
 	}
 	$("#tiles").on("click", ".imagepopup", function(){
