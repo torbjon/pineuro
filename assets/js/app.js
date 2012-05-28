@@ -87,6 +87,7 @@ function load_images(){
 		doscrollevent = true
 	})
 	current_page++
+	console.log("viens", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 	if(objectsTotal > 0 && $("#main").height() < $(window).height() && objectsLoaded < objectsTotal){
 		console.log("divi", $("#main").height(), $(window).height(), objectsTotal, objectsLoaded)
 	}
