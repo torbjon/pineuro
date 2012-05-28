@@ -109,7 +109,7 @@ a:hover { text-decoration: underline; }
 	background-color: #fff; */ /** Hide items initially to avoid a flicker effect **/
 	cursor: pointer;
 }
-#tiles li img { display: block; }
+#tiles li img { display: block; margin: 0 auto; }
 #tiles li p { margin: 7px 0 0 7px; color: #666; font-size: 12px; }
 #tiles ali:nth-child(3n) { height: 175px; }
 #tiles ali:nth-child(4n-3) { padding-bottom: 30px; }
