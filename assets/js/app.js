@@ -129,6 +129,8 @@ $(function(){
 			}
 			if($(this).children("img").data("description") != "undefined"){
 				$("#datadescription").html(decodeURIComponent($(this).children("img").data("description")))
+			} else {
+				$("#datadescription").html("")
 			}
 			$("#pinbutton").html(
 				'<a href="http://pinterest.com/pin/create/button/?url='+encodeURIComponent(document.location.href)+'&media='+encodeURIComponent(unescape($(this).children("img").data("imgsrc")))+'&description='+encodeURIComponent(unescape($(this).children("img").data("title")))+'" class="pin-it-button" count-layout="vertical"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a><script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"><'+'/script>'+
