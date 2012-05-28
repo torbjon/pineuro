@@ -92,7 +92,7 @@ $(function(){
 	if(searchTerm != ""){
 		$("#q").val(searchTerm)
 		while($("#main").height() < $(window).height()){
-			if((objectsTotal - objectsLoaded) > 0){
+			if((objectsTotal - objectsLoaded) > -1){
 				load_images()
 			} else {
 				break
