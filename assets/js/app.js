@@ -87,9 +87,11 @@ function load_images(){
 		doscrollevent = true
 	})
 	current_page++
+	/*
 	if(($("#main").height() < $(window).height()) && (objectsTotal - objectsLoaded > 0)){
 		load_images()
 	}
+	*/
 }
 $(function(){
 	if(searchTerm != ""){
