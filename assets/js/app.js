@@ -69,12 +69,12 @@ function load_images(){
 								"' height='"+this.height+
 								"' data-subjects=\""+encodeURIComponent(subjects.join(", "))+
 								"\" data-description='"+encodeURIComponent(item['dc:description'])+
-								"' data-originaluri='"+item['europeana:uri']+
-								"' data-provider='"+item['europeana:provider']+
-								"' data-country='"+item['europeana:country']+
-								"' data-creator='"+item['dc:creator']+
-								"' data-imgsrc='"+item['europeana:object'].replace(/\s/g,"%20")+
-								"' data-title='"+item['dc:title']+
+								"' data-originaluri='"+item['europeana:uri'].replace("'","%27")+
+								"' data-provider='"+item['europeana:provider'].replace("'","%27")+
+								"' data-country='"+item['europeana:country'].replace("'","%27")+
+								"' data-creator='"+item['dc:creator'].replace("'","%27")+
+								"' data-imgsrc='"+item['europeana:object'].replace(/\s/g,"%20").replace("'","%27")+
+								"' data-title='"+item['dc:title'].replace("'","%27")+
 								"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+
 								"' /></a></li>")
 							if(handler) handler.wookmarkClear();
