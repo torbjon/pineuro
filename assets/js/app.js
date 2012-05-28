@@ -75,7 +75,7 @@ function load_images(){
 								"' data-creator='"+((item['dc:creator']!=undefined)?item['dc:creator'].replace("'","%27"):"")+
 								"' data-imgsrc='"+item['europeana:object'].replace(/\s/g,"%20").replace("'","%27")+
 								"' data-title='"+item['dc:title'].replace("'","%27")+
-								"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'])+
+								"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20").replace("'","%27"))+
 								"' /></a></li>")
 							if(handler) handler.wookmarkClear();
 							wookmarking();
