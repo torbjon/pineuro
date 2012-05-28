@@ -87,16 +87,14 @@ function load_images(){
 		doscrollevent = true
 	})
 	current_page++
-	/*
-	if(($("#main").height() < $(window).height()) && (objectsTotal - objectsLoaded > 0)){
-		load_images()
-	}
-	*/
 }
 $(function(){
 	if(searchTerm != ""){
 		$("#q").val(searchTerm)
 		load_images()
+		if(($("#main").height() < $(window).height()) && (objectsTotal - objectsLoaded > 0)){
+			load_images()
+		}
 	}
 	$("#tiles").on("click", ".imagepopup", function(){
 		history.pushState(null, null, "/item/"+$(this).children("img").data("originaluri").replace("http://www.europeana.eu/resolve/record/","")+"?q="+encodeURIComponent(searchTerm))
