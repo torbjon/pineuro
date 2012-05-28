@@ -91,13 +91,9 @@ function load_images(){
 $(function(){
 	if(searchTerm != ""){
 		$("#q").val(searchTerm)
-		while($("#main").height() < $(window).height()){
-			if((objectsTotal - objectsLoaded) > -1){
-				load_images()
-			} else {
-				break
-			}
-		}
+		load_images()
+		load_images()
+		load_images()
 	}
 	$("#tiles").on("click", ".imagepopup", function(){
 		history.pushState(null, null, "/item/"+$(this).children("img").data("originaluri").replace("http://www.europeana.eu/resolve/record/","")+"?q="+encodeURIComponent(searchTerm))
