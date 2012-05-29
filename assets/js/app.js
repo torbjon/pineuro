@@ -145,9 +145,6 @@ $(function(){
 		fancing();
 		return false
 	})
-	$("body").on("click", "#fancybox-close", function(){
-		history.pushState(null, null, "/search?q="+encodeURIComponent(searchTerm))
-	})
 })
 String.prototype.capitalize = function(){
 	str = this;
