@@ -51,7 +51,6 @@ endif;
 			</div>
 			<div id="popup_side">
 				<div id="pinbutton">
-
 				</div>
 				<ul>
 					<li id="datadescription"></li>
@@ -117,7 +116,7 @@ endif;
 					$("#popup_img_title").html("")
 				}
 				$.fancybox(
-					$("#popup").html(),
+					$("#popup").parent("div").html(),
 					{
 						'width'			: 800,
 						'height'		: 500,
@@ -128,7 +127,7 @@ endif;
 						'easingIn'		: 'easeOutBack',
 						'easingOut'		: 'easeInBack',
 						'onClosed'		: function() {
-	    					history.pushState(null, null, "/search?q="+encodeURIComponent(searchTerm))
+							history.pushState(null, null, "/search?q="+encodeURIComponent(searchTerm))
 						}
 					}
 				)
