@@ -2,12 +2,10 @@
 	var History = window.History,
 		$ = window.jQuery,
 		document = window.document;
-	if ( !History.enabled ) {
-		return false;
+	if(!History.enabled){
+		return false
 	}
-	$(function(){
-	})
-})(window);
+})(window)
 var totalpages = 0,
 	current_page = 1,
 	doscrollevent = true,
@@ -15,14 +13,14 @@ var totalpages = 0,
 	objectsLoaded = 0,
 	imagesToLoad = 0,
 	objectsTotal = 0;
-function fancing() {
+function fancing(){
 	$(".imagepopup").fancybox({
 		'width'				: 800,
 		'height'				: 500,
 		'padding'			: 0,
 		'centerOnScroll': true,
 		'transitionIn'		: 'elastic',
-		'transitionOut'	:'elastic',
+		'transitionOut'	: 'elastic',
 		'easingIn'			: 'easeOutBack',
 		'easingOut'		: 'easeInBack',
 		'onClosed'			: function(){
@@ -34,10 +32,9 @@ function wookmarking(){
 	$('#tiles li').wookmark({
 		autoResize: true,
 		container: $('#main'),
-		offset: 4 //,
-		//itemWidth: 210
-	});
-	fancing();
+		offset: 4
+	})
+	fancing()
 }
 function load_images(){
 	doscrollevent = false
@@ -62,31 +59,29 @@ function load_images(){
 							$.each(item['dc:subject'], function(i){
 								subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'][i].replace("'","%27"))+"'>"+item['dc:subject'][i]+"</a>")
 							})
-						} else if(typeof(item['dc:subject']) == "string") {
+						} else if(typeof(item['dc:subject']) == "string"){
 							subjects.push("<a href='/search?q="+encodeURIComponent(item['dc:subject'].replace("'","%27"))+"'>"+item['dc:subject']+"</a>")
 						}
-						//if(this.width == 196){
-							imagesLoaded++
-							$("#tiles").append(
-								"<li><a class='imagepopup' href='#popup'><img width='"+this.width+
-								"' height='"+this.height+
-								"' data-subjects=\""+encodeURIComponent(subjects.join(", "))+
-								"\" data-description='"+encodeURIComponent(item['dc:description'])+
-								"' data-originaluri='"+escape(item['europeana:uri'])+
-								"' data-provider='"+escape(item['europeana:provider'])+
-								"' data-country='"+escape(item['europeana:country'])+
-								"' data-creator='"+escape(item['dc:creator'])+
-								"' data-imgsrc='"+escape(item['europeana:object'].replace(/\s/g,"%20"))+
-								"' data-title='"+escape(item['dc:title'])+
-								"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20").replace("'","%27"))+
-								"' /></a></li>")
-							if(handler) handler.wookmarkClear();
-							wookmarking();
-							$("img").error(function(){
-								console.log($(this))
-								$(this).remove()
-							})
-						//}
+						imagesLoaded++
+						$("#tiles").append(
+							"<li><a class='imagepopup' href='#popup'><img width='"+this.width+
+							"' height='"+this.height+
+							"' data-subjects=\""+encodeURIComponent(subjects.join(", "))+
+							"\" data-description='"+encodeURIComponent(item['dc:description'])+
+							"' data-originaluri='"+escape(item['europeana:uri'])+
+							"' data-provider='"+escape(item['europeana:provider'])+
+							"' data-country='"+escape(item['europeana:country'])+
+							"' data-creator='"+escape(item['dc:creator'])+
+							"' data-imgsrc='"+escape(item['europeana:object'].replace(/\s/g,"%20"))+
+							"' data-title='"+escape(item['dc:title'])+
+							"' src='http://social.apps.lv/image.php?w=200&zc=3&src="+encodeURIComponent(item['europeana:object'].replace(/\s/g,"%20").replace("'","%27"))+
+							"' /></a></li>")
+						if(handler) handler.wookmarkClear()
+						wookmarking()
+						$("img").error(function(){
+							console.log($(this))
+							$(this).remove()
+						})
 					}
 				}
 			})
@@ -96,12 +91,13 @@ function load_images(){
 	current_page++
 }
 $(function(){
+	$(document).bind('scroll', onScroll)
 	if(searchTerm != ""){
 		$("#q").val(searchTerm)
 		load_images()
 	}
-	var initialloads = 0;
-	$('#main').ajaxComplete(function() {
+	var initialloads = 0
+	$('#main').ajaxComplete(function(){
 		initialloads++
 		if(initialloads == 12){
 			if(objectsTotal > 0 && $("#main").height() < $(window).height() && objectsLoaded < objectsTotal){
@@ -142,49 +138,41 @@ $(function(){
 		} else {
 			$("#popup_img_title").html("")
 		}
-		fancing();
+		fancing()
 		return false
 	})
 })
 String.prototype.capitalize = function(){
-	str = this;
-	var doneStr = '';
-	var len = str.length;
-	var wordIdx = 0;
-	var char;
-	for (var i = 0;i < len;i++) {
-		char = str.substring(i,i + 1);
-		if (' -/#$&.()'.indexOf(char) > -1) {
-			wordIdx = -1;
+	str = this
+	var doneStr = ''
+	var len = str.length
+	var wordIdx = 0
+	var char
+	for (var i = 0;i < len;i++){
+		char = str.substring(i,i + 1)
+		if(' -/#$&.()'.indexOf(char) > -1){
+			wordIdx = -1
 		}
-		if (wordIdx == 0) {
-			char = char.toUpperCase();
-		} else if (wordIdx > 0) {
-			char = char.toLowerCase();
+		if(wordIdx == 0){
+			char = char.toUpperCase()
+		} else if(wordIdx > 0){
+			char = char.toLowerCase()
 		}
-		doneStr += char;
-		wordIdx++;
+		doneStr += char
+		wordIdx++
 	}
-	return doneStr;
+	return doneStr
 }
-var handler = null;
-function onScroll(event) {
+var handler = null
+function onScroll(event){
 	if(doscrollevent){
-		// Check if we're within 100 pixels of the bottom edge of the broser window.
-		var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 1);
-		if(closeToBottom) {
-			// Get the first then items from the grid, clone them, and add them to the bottom of the grid.
+		var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 1)
+		if(closeToBottom){
 			load_images()
-			// Clear our previous layout handler.
-			if(handler) handler.wookmarkClear();
-			// Create a new layout handler.
-			wookmarking();
+			if(handler){
+				handler.wookmarkClear()
+			}
+			wookmarking()
 		}
 	}
-};
-$(document).ready(new function() {
-	// Capture scroll event.
-	$(document).bind('scroll', onScroll);
-	// Call the layout function.
-	wookmarking();
-});
+}
