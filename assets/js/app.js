@@ -145,10 +145,10 @@ $(function(){
 })
 String.prototype.capitalize = function(){
 	str = this
-	var doneStr = ''
-	var len = str.length
-	var wordIdx = 0
-	var char
+	var doneStr = '',
+		len = str.length,
+		wordIdx = 0,
+		char
 	for (var i = 0;i < len;i++){
 		char = str.substring(i,i + 1)
 		if(' -/#$&.()'.indexOf(char) > -1){
