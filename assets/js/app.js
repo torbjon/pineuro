@@ -38,6 +38,7 @@ function wookmarking(){
 	fancing()
 }
 function load_images(){
+	$("#loading_status").show()
 	doscrollevent = false
 	$.getJSON("/request.php?callback=?", {
 		searchTerms: searchTerm,
@@ -88,6 +89,7 @@ function load_images(){
 			})
 		})
 		doscrollevent = true
+		$("#loading_status").hide()
 	})
 	current_page++
 }
