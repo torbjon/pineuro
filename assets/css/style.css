@@ -120,7 +120,7 @@ a:hover { text-decoration: underline; }
 #popup {
 	width: 800px;
 	height: 500px;
-	background-color: #333;
+	background: url("/assets/images/ajax-loader.gif") no-repeat 109px center #333;
 	z-index: 1000;
 	/*border: 2px solid #000;*/
 	-webkit-border-radius: 4px;
