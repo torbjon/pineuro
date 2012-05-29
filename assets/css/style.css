@@ -120,7 +120,7 @@ a:hover { text-decoration: underline; }
 #popup {
 	width: 800px;
 	height: 500px;
-	background: url("/assets/images/ajax-loader.gif") no-repeat 109px center #333;
+	background: url("/assets/images/ajax-loader.gif") no-repeat 234px center #333;
 	z-index: 1000;
 	/*border: 2px solid #000;*/
 	-webkit-border-radius: 4px;
@@ -132,7 +132,7 @@ a:hover { text-decoration: underline; }
 	/*margin: 15px;*/
 	width: 500px;
 	height: 500px;
-	background: #333 no-repeat center center;
+	background: transparent no-repeat center center;
 	-webkit-border-top-left-radius: 4px;
 	-webkit-border-bottom-left-radius: 4px;
 	-moz-border-radius-topleft: 4px;
