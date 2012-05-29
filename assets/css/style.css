@@ -132,7 +132,8 @@ a:hover { text-decoration: underline; }
 	/*margin: 15px;*/
 	width: 500px;
 	height: 500px;
-	background: transparent no-repeat center center;
+	background-repeat: no-repeat;
+	background-position: center center;
 	-webkit-border-top-left-radius: 4px;
 	-webkit-border-bottom-left-radius: 4px;
 	-moz-border-radius-topleft: 4px;
