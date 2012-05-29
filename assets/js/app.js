@@ -6,13 +6,14 @@
 		return false
 	}
 })(window)
-var totalpages = 0,
-	current_page = 1,
-	doscrollevent = true,
-	imagesLoaded = 0,
-	objectsLoaded = 0,
-	imagesToLoad = 0,
-	objectsTotal = 0;
+var totalpages		= 0,
+	current_page	= 1,
+	doscrollevent	= true,
+	imagesLoaded	= 0,
+	objectsLoaded	= 0,
+	imagesToLoad	= 0,
+	objectsTotal		= 0,
+	handler				= null
 function fancing(){
 	$(".imagepopup").fancybox({
 		'width'				: 800,
@@ -163,7 +164,6 @@ String.prototype.capitalize = function(){
 	}
 	return doneStr
 }
-var handler = null
 function onScroll(event){
 	if(doscrollevent){
 		var closeToBottom = ($(window).scrollTop() + $(window).height() > $(document).height() - 1)
