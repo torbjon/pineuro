@@ -89,7 +89,6 @@ function load_images(){
 			})
 		})
 		doscrollevent = true
-		$("#loading_status").hide()
 	})
 	current_page++
 }
@@ -108,6 +107,7 @@ $(function(){
 			}
 			initialloads = 0
 		}
+		$("#loading_status").hide()
 	})
 	$("#tiles").on("click", ".imagepopup", function(){
 		history.pushState(null, null, "/item/"+unescape($(this).children("img").data("originaluri")).replace("http://www.europeana.eu/resolve/record/","")+"?q="+encodeURIComponent(searchTerm))
