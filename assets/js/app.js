@@ -17,14 +17,17 @@ var totalpages = 0,
 	objectsTotal = 0;
 function fancing() {
 	$(".imagepopup").fancybox({
-		'width'			: 800,
-		'height'		: 500,
-		'padding'		: 0,
+		'width'				: 800,
+		'height'				: 500,
+		'padding'			: 0,
 		'centerOnScroll': true,
-		'transitionIn'	: 'elastic',
-		'transitionOut'	: 'elastic',
-		'easingIn'		: 'easeOutBack',
-		'easingOut'		: 'easeInBack'
+		'transitionIn'		: 'elastic',
+		'transitionOut'	:'elastic',
+		'easingIn'			: 'easeOutBack',
+		'easingOut'		: 'easeInBack',
+		'onClosed'			: function(){
+			history.pushState(null, null, "/search?q="+encodeURIComponent(searchTerm))
+		}
 	})
 }
 function wookmarking(){
