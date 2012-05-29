@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/assets/css/reset.css" />
-	<link rel="stylesheet" href="/assets/css/style.css" />
+	<link rel="stylesheet" href="/assets/css/style.css?v=<?php echo filemtime($_SERVER['DOCUMENT_ROOT']."/assets/css/style.css"); ?>" />
 	<link rel="stylesheet" href="/assets/css/bootstrap.css" />
 	<link rel="stylesheet" href="/assets/fancybox/jquery.fancybox-1.3.4.css" />
 	<?php
