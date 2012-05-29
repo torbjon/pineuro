@@ -38,7 +38,7 @@ function wookmarking(){
 	fancing()
 }
 function load_images(){
-	$("#loading_status").show()
+	$("#loading_status").fadeIn("slow")
 	doscrollevent = false
 	$.getJSON("/request.php?callback=?", {
 		searchTerms: searchTerm,
@@ -89,7 +89,7 @@ function load_images(){
 			})
 		})
 		doscrollevent = true
-		$("#loading_status").hide()
+		$("#loading_status").fadeOut("slow")
 	})
 	current_page++
 }
