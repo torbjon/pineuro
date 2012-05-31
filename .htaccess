@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www.europ.in\.lv$ [NC]
+RewriteCond %{HTTP_HOST} ^www\.europ\.in$ [NC]
 RewriteRule ^(.*)$ http://europ.in/$1 [L,R=301,QSA]
 RewriteRule ^about$  about.php  [NC,L,QSA]
 RewriteRule ^search$	search.php	[NC,L,QSA]
