@@ -25,7 +25,7 @@ function fancing(){
 		'easingIn'			: 'easeOutBack',
 		'easingOut'		: 'easeInBack',
 		'onClosed'			: function(){
-			history.pushState(null, null, "/search?q="+encodeURIComponent(searchTerm))
+			history.pushState(null, null, "/search?q="+escape(searchTerm))
 		}
 	})
 }
@@ -110,7 +110,7 @@ $(function(){
 		}
 	})
 	$("#tiles").on("click", ".imagepopup", function(){
-		history.pushState(null, null, "/item/"+unescape($(this).children("img").data("originaluri")).replace("http://www.europeana.eu/resolve/record/","")+"?q="+encodeURIComponent(searchTerm))
+		history.pushState(null, null, "/item/"+unescape($(this).children("img").data("originaluri")).replace("http://www.europeana.eu/resolve/record/","")+"?q="+escape(searchTerm))
 		$("#popup_img").css('background-image', 'url(http://social.apps.lv/image.php?cc=333&w=470&h=470&zc=2&src='+encodeURIComponent(unescape($(this).children("img").data("imgsrc")))+')')
 		if($(this).children("img").data("title") != undefined){
 			$("#popup_img_title").html(unescape($(this).children("img").data("title")))
