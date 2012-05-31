@@ -1,4 +1,6 @@
 RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www.europ.in\.lv$ [NC]
+RewriteRule ^(.*)$ http://europ.in/$1 [L,R=301,QSA]
 RewriteRule ^about$  about.php  [NC,L,QSA]
 RewriteRule ^search$	search.php	[NC,L,QSA]
 RewriteRule ^item/([0-9]+)/([ABCDEF0-9]{40})	/search.php?itemid=$1/$2 [NC,L,QSA]
