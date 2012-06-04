@@ -53,7 +53,7 @@ function load_images(){
 				objectsLoaded++
 				if(item['europeana:object'] != undefined){
 					newimg = new Image()
-					newimg.src = "http://social.apps.lv/image.php?w=196&zc=2&src="+encodeURIComponent(item['europeana:object'])
+					newimg.src = "http://social.apps.lv/image.php?w=150&zc=2&src="+encodeURIComponent(item['europeana:object'])
 					newimg.onload = function(){
 						imagesLoaded++
 						var subjects = []
